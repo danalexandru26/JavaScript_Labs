@@ -26,26 +26,214 @@
                 <hr class="w-50">
             </div>
             <div class="row">
-                <div class="col-2">
-
-                </div>
+                <aside class="col-2 d-none d-lg-block my-4">
+                    <div class="position-sticky" style="top: 4.2rem">
+                        <ul class="list-unstyled">
+                            <li><a href="#whyJavascript">Why Javascript</a></li>
+                            <li><a href="#usingJavascript">Integrating Javascript</a>
+                                <ul class="list-unstyled ms-3">
+                                    <li><a href="#inlineJS">Inline JS</a></li>
+                                    <li><a href="#internalJS">Internal JS</a></li>
+                                    <li><a href="#externalJS">External JS</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#outputtingJavascript">Outputting Javascript</a></li>
+                        </ul>
+                    </div>
+                </aside>
                 <div class="col-8 justify-content-center my-4">
-                    <p>This document will contain a brief compendium on <code>Javascript</code> and its uses. For a more
-                        detailed guide, please acess the following hyperlink to be redirected to the
-                        <em><code>Javascript</code> Reference</em> <a
-                            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide" class="index"
-                            alt="Javascript Reference is not accessible, please check your internet connection">Javascript
-                            Reference</a>.
-                    </p>
-                    <h3 class="chapter" id="whyJavascript">Why Javascript?</h3>
-                    <p><span class="important">Javascript</span>, since its inception, has become the scripting language
-                        of the world wide web. Without going too much into the deep end on why this is so, consider the
-                        following idea: </p>
-                </div>
-                <div class="col-2">
+                    <div id="introduction">
+                        <p>This document will contain a brief compendium on <code>Javascript</code> and its uses. For a
+                            more
+                            detailed guide, please acess the following hyperlink to be redirected to the
+                            <em><code>Javascript</code> Reference</em> <a
+                                href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide" class="index"
+                                alt="Javascript Reference is not accessible, please check your internet connection">Javascript
+                                Reference</a>.
+                        </p>
+                        <h3 class="chapter" id="whyJavascript">Why Javascript?</h3>
+                        <p><span class="important">Javascript</span>, since its inception, has become the scripting
+                            language
+                            of the world wide web. Without going too much into the deep end on why this is so, consider
+                            the
+                            following idea: if <code>php</code> is the langauge we use when dealing with server-side
+                            processing of data, <code>html</code> the language we use for structuring the outline of our
+                            web-page and <code>css</code> the language that is used for styling the contents of our html
+                            tags, then <code>Javascript</code> shall be the language we use for modeling our web-page's
+                            behavior.</p>
+                        <p>In other words, <code>Javascript</code> is what we use for dynamically manipulating the
+                            contents
+                            of our web-page. In order to achieve this, we may call upon the many methods that
+                            <code>Javascript</code> provides.
+                        </p>
+                        <p>Throughout this whole tutorial series, we will explore these methods and how they can be used
+                            to
+                            create
+                            dynamic and interactive web-pages.</p>
+                    </div>
+                    <div id="usingJS">
+                        <h3 class="chapter" id="usingJavascript">Integrating Javascript</h3>
+                        <p>There are multiple methods of integrating <code>Javascript</code> into an HTML document:</p>
+                        <ul>
+                            <li>Inline: Using the <code>script</code> tag directly within the HTML element.</li>
+                            <li>Internal: Using the <code>script</code> tag within the <code>head</code> or
+                                <code>body</code>
+                                section of the HTML document.
+                            </li>
+                            <li>External: Linking to an external JavaScript file using the <code>src</code> attribute in
+                                the
+                                <code>script</code> tag.
+                            </li>
+                        </ul>
+                        <p>Conventionally, the fastest way of loading a web-page that has <code>Javascript</code>
+                            scripts embedded is by using a linked external file. If we still desire to use it within our
+                            document, it's suggested to place the <code>&lt;script&gt;</code> tag in the
+                            <code>head</code> section of the HTML document. In case the <code>&lt;script&gt;</code> tag
+                            is used within the <code>body</code> section, it's recommended to place it at the end of the
+                            body for optimal performance. This is because the document is loaded top to bottom.
+                        </p>
+                        <h3 class="chapter" id="inlineJS">Inline JS</h3>
+                        <p>A text example of inline <code>javascript</code> can be found in the code block below.</p>
+                        <pre>
+<span style="color:#82AAFF;">&lt;script&gt;</span>
+<span style="color:#C792EA;">function</span> <span style="color:#82AAFF;">shipCategoryChange</span>() {
+    <span style="color:#C792EA;">var</span> <span style="color:#FFCB6B;">shipCategory</span> =
+        <span style="color:#82AAFF;">document</span>.<span style="color:#82AAFF;">getElementById</span>(<span style="color:#C3E88D;">"shipCategory"</span>).<span style="color:#FFCB6B;">value</span>;
 
+    <span style="color:#C792EA;">if</span> (<span style="color:#FFCB6B;">shipCategory</span> == <span style="color:#C792EA;">null</span>) <span style="color:#C792EA;">return</span>;
+
+    <span style="color:#C792EA;">else if</span> (<span style="color:#FFCB6B;">shipCategory</span> == <span style="color:#C3E88D;">"civilian"</span>) {
+        <span style="color:#C792EA;">var</span> <span style="color:#FFCB6B;">shipType</span> = [
+            <span style="color:#C3E88D;">'Fuel Tankers'</span>,
+            <span style="color:#C3E88D;">'Civilian Transport Vessels'</span>,
+            <span style="color:#C3E88D;">'Cargo Freighters'</span>
+        ];
+    }
+    <span style="color:#C792EA;">else if</span> (<span style="color:#FFCB6B;">shipCategory</span> == <span style="color:#C3E88D;">"military"</span>) {
+        <span style="color:#C792EA;">var</span> <span style="color:#FFCB6B;">shipType</span> = [
+            <span style="color:#C3E88D;">'Fighters'</span>,
+            <span style="color:#C3E88D;">'Corvettes'</span>,
+            <span style="color:#C3E88D;">'Frigates'</span>,
+            <span style="color:#C3E88D;">'Destroyers'</span>,
+            <span style="color:#C3E88D;">'Cruisers'</span>,
+            <span style="color:#C3E88D;">'Carriers'</span>
+        ];
+    }
+    <span style="color:#C792EA;">else</span> <span style="color:#C792EA;">return</span>;
+
+    <span style="color:#C792EA;">var</span> <span style="color:#FFCB6B;">select</span> =
+        <span style="color:#82AAFF;">document</span>.<span style="color:#82AAFF;">getElementById</span>(<span style="color:#C3E88D;">"shipType"</span>);
+    <span style="color:#FFCB6B;">select</span>.<span style="color:#FFCB6B;">innerHTML</span> = <span style="color:#C792EA;">null</span>;
+
+    <span style="color:#FFCB6B;">shipType</span>.<span style="color:#82AAFF;">forEach</span>(<span style="color:#C792EA;">function</span> (<span style="color:#FFCB6B;">type</span>) {
+        <span style="color:#C792EA;">var</span> <span style="color:#FFCB6B;">option</span> =
+            <span style="color:#82AAFF;">document</span>.<span style="color:#82AAFF;">createElement</span>(<span style="color:#C3E88D;">'option'</span>);
+        <span style="color:#FFCB6B;">option</span>.<span style="color:#FFCB6B;">value</span> =
+            <span style="color:#FFCB6B;">type</span>.<span style="color:#82AAFF;">toLowerCase</span>().<span style="color:#82AAFF;">replace</span>(<span style="color:#F07178;">/ /g</span>, <span style="color:#C3E88D;">'_'</span>);
+        <span style="color:#FFCB6B;">option</span>.<span style="color:#FFCB6B;">innerHTML</span> = <span style="color:#FFCB6B;">type</span>;
+        <span style="color:#FFCB6B;">select</span>.<span style="color:#82AAFF;">appendChild</span>(<span style="color:#FFCB6B;">option</span>);
+    });
+}
+<span style="color:#82AAFF;">&lt;/script&gt;</span>
+</pre>
+                        <h3 class="chapter" id="internalJS">Internal JS</h3>
+                        <p>A text example of internal <code>javascript</code> can be found in the code block below.</p>
+                        <pre>
+<span style="color:#82AAFF;">&lt;body&gt;</span>
+<span style="color:#82AAFF;">&lt;script&gt;</span>
+<span style="color:#C792EA;">function</span> <span style="color:#82AAFF;">idCheck</span>() {
+    <span style="color:#C792EA;">let</span> <span style="color:#FFCB6B;">userInput</span> =
+        <span style="color:#82AAFF;">document</span>.<span style="color:#82AAFF;">getElemenetById</span>(<span style="color:#C3E88D;">"slipstreamGate"</span>).<span style="color:#FFCB6B;">value</span>;
+
+    <span style="color:#C792EA;">if</span> (<span style="color:#FFCB6B;">userInput</span> == <span style="color:#C792EA;">null</span>) {
+        <span style="color:#82AAFF;">print</span>(<span style="color:#C3E88D;">"No input was provided."</span>);
+        <span style="color:#C792EA;">return</span>;
+    }
+
+    <span style="color:#C792EA;">else if</span> (<span style="color:#FFCB6B;">userInput</span>.<span style="color:#FFCB6B;">length</span> &gt; <span style="color:#F78C6C;">1</span>) {
+        <span style="color:#C792EA;">if</span> (
+            <span style="color:#FFCB6B;">userInput</span>.<span style="color:#82AAFF;">charAt</span>(<span style="color:#F78C6C;">0</span>) != <span style="color:#C3E88D;">'S'</span> ||
+            <span style="color:#FFCB6B;">userInput</span>.<span style="color:#82AAFF;">charAt</span>(<span style="color:#F78C6C;">1</span>) != <span style="color:#C3E88D;">'-'</span>
+        ) {
+            <span style="color:#82AAFF;">print</span>(<span style="color:#C3E88D;">"This slipstream gate is located in the Sol system."</span>);
+        }
+    }
+}
+<span style="color:#82AAFF;">&lt;/script&gt;</span>
+<span style="color:#82AAFF;">&lt;/body&gt;</span>
+</pre>
+                        <h3 class="chapter" id="internalJS">External JS</h3>
+                        <p>A text example of external <code>javascript</code> can be found in the code block below. All
+                            we have to do is create a new <code>.js</code> file and link it to the HTML document using
+                            the <code>&lt;script&gt;</code> tag. As a matter fact, this is how <code>javascript</code>
+                            was integrated into this web-page.</p>
+                        <pre>
+<span style="color:#82AAFF;">&lt;head&gt;</span>
+    <span style="color:#82AAFF;">&lt;script</span> <span style="color:#FFCB6B;">src</span>=<span style="color:#C3E88D;">"../Scripts/scripts.js"</span> <span style="color:#82AAFF;">&gt;&lt;/script&gt;</span>
+<span style="color:#82AAFF;">&lt;/head&gt;</span>
+</pre>
+
+                    </div>
+                    <div id="outputtingJS">
+                        <h3 class="chapter" id="outputtingJavascript">Outputting Javascript</h3>
+                        <p>There are multiple methods of outputting data using <code>Javascript</code>. The most common
+                            methods are:</p>
+                        <ul>
+                            <li><code>console.log()</code></li>
+                            <li><code>alert()</code></li>
+                            <li><code>document.write()</code></li>
+                            <li><code>document.getElementById().innerHTML = "..."</code></li>
+                        </ul>
+                        <p>A brief explanation of what each of these method does can be foud below.</p>
+                        <ul>
+                            <li><code>console.log()</code> outputs data to the browser console.</li>
+                            <li><code>alert()</code> displays an alert dialog box with a message.</li>
+                            <li><code>document.write()</code> writes text directly into the HTML document.</li>
+                            <li><code>document.getElementById().innerHTML = "..."</code> changes the content of an
+                                element with a specific ID.</li>
+                        </ul>
+                        <pre>
+<span style="color:#82AAFF;">function</span> <span style="color:#82AAFF;">logData</span>() {
+    <span style="color:#82AAFF;">var</span> <span style="color:#E06C75;">userName</span> =
+        <span style="color:#61AFEF;">document</span>.<span style="color:#61AFEF;">getElementById</span>(<span style="color:#98C379;">"username"</span>).<span style="color:#E5C07B;">value</span>;
+    <span style="color:#82AAFF;">var</span> <span style="color:#E06C75;">userPassword</span> =
+        <span style="color:#61AFEF;">document</span>.<span style="color:#61AFEF;">getElementById</span>(<span style="color:#98C379;">"password"</span>).<span style="color:#E5C07B;">value</span>;
+    <span style="color:#82AAFF;">var</span> <span style="color:#E06C75;">protected</span> =
+        <span style="color:#61AFEF;">document</span>.<span style="color:#61AFEF;">getElementById</span>(<span style="color:#98C379;">"protected"</span>).<span style="color:#E5C07B;">checked</span>;
+
+    <span style="color:#82AAFF;">if</span> (<span style="color:#E06C75;">protected</span> == <span style="color:#56B6C2;">false</span>) {
+        <span style="color:#61AFEF;">console</span>.<span style="color:#61AFEF;">log</span>(
+            <span style="color:#98C379;">"Username: "</span> + <span style="color:#E06C75;">userName</span> +
+            <span style="color:#98C379;">" Password: "</span> + <span style="color:#E06C75;">userPassword</span>
+        );
+    }
+    <span style="color:#82AAFF;">else</span> {
+        <span style="color:#61AFEF;">console</span>.<span style="color:#61AFEF;">log</span>(<span style="color:#98C379;">"The user is protected."</span>);
+    }
+}
+
+<span style="color:#82AAFF;">function</span> <span style="color:#82AAFF;">setInnerPreformat</span>() {
+    <span style="color:#82AAFF;">var</span> <span style="color:#E06C75;">preformatTag</span> =
+        <span style="color:#61AFEF;">document</span>.<span style="color:#61AFEF;">getElementById</span>(<span style="color:#98C379;">"codePreformat"</span>);
+
+    <span style="color:#E06C75;">preformatTag</span>.<span style="color:#E5C07B;">innerHTML</span> =
+        <span style="color:#98C379;">"&lt;span style='color:blue;'&gt;var&lt;/span&gt; name = 'Lucky';"</span>;
+
+    <span style="color:#82AAFF;">if</span> (!<span style="color:#E06C75;">preformatTag</span>.<span style="color:#E5C07B;">innerHTML</span>.<span style="color:#61AFEF;">includes</span>(<span style="color:#98C379;">"var"</span>)) {
+        <span style="color:#61AFEF;">console</span>.<span style="color:#61AFEF;">log</span>(<span style="color:#98C379;">"The innerHTML was not set correctly."</span>);
+    }
+}
+
+<span style="color:#82AAFF;">function</span> <span style="color:#82AAFF;">alertMessage</span>() {
+    <span style="color:#61AFEF;">window</span>.<span style="color:#61AFEF;">alert</span>(<span style="color:#98C379;">"Remember to drink water!"</span>);
+}
+</pre>
+
+                    </div>
                 </div>
-            </div>
+
+                <div class="col-2">
+                </div>
         </main>
     </div>
 </body>
