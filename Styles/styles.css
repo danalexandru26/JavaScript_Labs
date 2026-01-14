@@ -1,0 +1,9 @@
+a.index {
+    text-decoration: none;
+    color:grey;
+}
+
+a.index:hover {
+    color: white;
+    font-style: italic;
+}
