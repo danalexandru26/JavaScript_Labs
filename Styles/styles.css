@@ -1,9 +1,24 @@
 a.index {
     text-decoration: none;
-    color:grey;
+    color: grey;
 }
 
 a.index:hover {
     color: white;
+    font-style: italic;
+}
+
+h3.chapter {
+    color: grey;
+    font-style: normal;
+}
+
+h3.chapter:hover {
+    color: white;
+    font-style: italic;
+}
+
+span.important {
+    color: #e685b5;
     font-style: italic;
 }
