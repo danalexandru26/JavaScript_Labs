@@ -1,0 +1,101 @@
+<!DOCTYPE HTML>
+
+<html lang="en" data-bs-theme="dark">
+
+<head>
+    <title>Javascript Index</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="../Styles/styles.css">
+    <script src="../Scripts/scripts.js"></script>
+
+</head>
+
+
+<body>
+    <div class="container">
+        <main>
+            <div class="row my-4 justify-content-center">
+                <div class="col-12">
+                    <h1 class="display-4 text-center">
+                        Conditionals and Loops
+                    </h1>
+                </div>
+                <hr class="w-50">
+            </div>
+            <div class="row">
+                <aside class="col-2 d-none d-lg-block my-4">
+                    <div class="position-sticky" style="top: 4.2rem;">
+                    </div>
+                </aside>
+
+                <div class="col-8 justify-content-center my-4">
+                    <div id="Introduction">
+                        <p>Conditionals and Loops represent some of the most important means of data manipulation in any
+                            programming language. <span class="important">Conditionals</span> allow the program to make
+                            decisions, while <span class="important">loops</span> enable repetitive actions. Without
+                            such
+                            structures, we would be writing repetitive code that's monstrously inefficient. Algorithms,
+                            minus those that are the least complex, being virtually impossible to write.</p>
+
+                        <p>This document will provide a short compendium on the basic concepts of conditionals and loops
+                            in
+                            JavaScript by offering samples of each.</p>
+                    </div>
+
+                    <div id="Conditionals">
+                        <h3 class="chapter">Conditionals</h3>
+                        <p>Conditionals are statements that perform different actions based on whether a specified
+                            condition
+                            evaluates to true or false. In JavaScript, the primary conditional statements are
+                            <code>if</code>,
+                            <code>else if</code>, and <code>else</code>. Here's a basic example:
+                        </p>
+                        <pre>
+<span style="color:#82AAFF;">function</span> <span style="color:#88C0D0;">sampleConditionals</span>() {
+    <span style="color:#C792EA;">let</span> <span style="color:#82AAFF;">nameA</span> = <span style="color:#ECC48D;">"Bella"</span>;
+    <span style="color:#C792EA;">let</span> <span style="color:#82AAFF;">nameB</span> = <span style="color:#ECC48D;">"Charlie"</span>;
+
+    <span style="color:#C792EA;">if</span> (<span style="color:#82AAFF;">nameA</span> <span style="color:#C792EA;">===</span> <span style="color:#82AAFF;">nameB</span>) {
+        <span style="color:#88C0D0;">console</span>.<span style="color:#DCDCAA;">log</span>(
+            <span style="color:#ECC48D;">"The content of these two variables is identical."</span>
+        );
+    }
+
+    <span style="color:#C792EA;">if</span> (<span style="color:#82AAFF;">nameA</span> <span style="color:#C792EA;">==</span> <span style="color:#C792EA;">null</span>) {
+        <span style="color:#88C0D0;">console</span>.<span style="color:#DCDCAA;">log</span>(<span style="color:#ECC48D;">"nameA is null."</span>);
+    }
+
+    <span style="color:#C792EA;">if</span> (<span style="color:#82AAFF;">nameB</span> <span style="color:#C792EA;">==</span> <span style="color:#C792EA;">null</span>) {
+        <span style="color:#88C0D0;">console</span>.<span style="color:#DCDCAA;">log</span>(<span style="color:#ECC48D;">"nameB is null."</span>);
+    }
+
+    <span style="color:#C792EA;">let</span> <span style="color:#82AAFF;">score</span> = <span style="color:#F78C6C;">85</span>;
+
+    <span style="color:#C792EA;">if</span> (<span style="color:#82AAFF;">score</span> <span style="color:#C792EA;">&gt;=</span> <span style="color:#F78C6C;">90</span>) {
+        <span style="color:#88C0D0;">console</span>.<span style="color:#DCDCAA;">log</span>(<span style="color:#ECC48D;">"Grade: A"</span>);
+    }
+    <span style="color:#C792EA;">else if</span> (<span style="color:#82AAFF;">score</span> <span style="color:#C792EA;">&gt;=</span> <span style="color:#F78C6C;">80</span>) {
+        <span style="color:#88C0D0;">console</span>.<span style="color:#DCDCAA;">log</span>(<span style="color:#ECC48D;">"Grade: B"</span>);
+    }
+    <span style="color:#C792EA;">else if</span> (<span style="color:#82AAFF;">score</span> <span style="color:#C792EA;">&gt;=</span> <span style="color:#F78C6C;">70</span>) {
+        <span style="color:#88C0D0;">console</span>.<span style="color:#DCDCAA;">log</span>(<span style="color:#ECC48D;">"Grade: C"</span>);
+    }
+    <span style="color:#C792EA;">else if</span> (<span style="color:#82AAFF;">score</span> <span style="color:#C792EA;">&gt;=</span> <span style="color:#F78C6C;">60</span>) {
+        <span style="color:#88C0D0;">console</span>.<span style="color:#DCDCAA;">log</span>(<span style="color:#ECC48D;">"Grade: D"</span>);
+    }
+    <span style="color:#C792EA;">else</span> {
+        <span style="color:#88C0D0;">console</span>.<span style="color:#DCDCAA;">log</span>(<span style="color:#ECC48D;">"Try again next year!"</span>);
+    }
+}
+</pre>
+
+                    </div>
+                </div>
+        </main>
+    </div>
+</body>
+
+</html>

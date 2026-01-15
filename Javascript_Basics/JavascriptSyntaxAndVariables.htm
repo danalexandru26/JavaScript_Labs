@@ -1,0 +1,235 @@
+<!DOCTYPE HTML>
+
+<html lang="en" data-bs-theme="dark">
+
+<head>
+    <title>Javascript Index</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="../Styles/styles.css">
+    <script src="../Scripts/scripts.js"></script>
+
+</head>
+
+
+<body>
+    <div class="container">
+        <main>
+            <div class="row my-4 justify-content-center">
+                <div class="col-12">
+                    <h1 class="display-4 text-center">
+                        Javascript Syntax and Variables
+                    </h1>
+                </div>
+                <hr class="w-50">
+            </div>
+            <div class="row">
+                <aside class="col-2 d-none d-lg-block my-4">
+                    <div class="position-sticky" style="top: 4.2rem">
+                        <ul class="list-unstyled">
+                            <li><a href="#syntax">Javascript Syntax</a></li>
+                            <li><a href="#variables">Javascript Variables</a></li>
+                            <li><a href="#types">Javascript Types and Operators</a></li>
+                        </ul>
+                    </div>
+                </aside>
+                <div class="col-8 my-4">
+                    <p>For all those who are familiar to how programming languages work and are written,
+                        <code>Javascript</code> is not much different, following a nearly identical structure to
+                        dynamically typed languages such as <code>Python</code>. Do not get fooled by its tricky name,
+                        it is rather most unlike <code>Java</code>, machine code discounted.
+                    </p>
+                    <div id="syntax">
+                        <h3 class="chapter" id="outputtingJavascript">Javascript Syntax</h3>
+                        <p>The examples presented in the previous section of the tutorial have already offered us a nice
+                            insight into how the syntax is written in <code>Javascript</code>. Statements are separated
+                            by semicolons and are generally written on a line each, so our code may be cohesive and
+                            readable. In order to make
+                            everything clear and offer as much diversity as possible, some supplementary examples are
+                            provided below:</p>
+                        <pre>
+<span style="color:#82AAFF;">let</span> <span style="color:#E06C75;">a</span> = <span style="color:#D19A66;">10</span>;
+<span style="color:#82AAFF;">let</span> <span style="color:#E06C75;">b</span> = <span style="color:#D19A66;">20</span>;
+
+<span style="color:#82AAFF;">var</span> <span style="color:#E06C75;">c</span> = <span style="color:#D19A66;">10</span>;
+<span style="color:#82AAFF;">var</span> <span style="color:#E06C75;">d</span> = <span style="color:#D19A66;">20</span>;
+
+<span style="color:#82AAFF;">let</span> <span style="color:#E06C75;">sum</span> = <span style="color:#E06C75;">a</span> + <span style="color:#E06C75;">b</span>;
+<span style="color:#82AAFF;">var</span> <span style="color:#E06C75;">product</span> = <span style="color:#E06C75;">c</span> * <span style="color:#E06C75;">d</span>;
+
+<span style="color:#61AFEF;">console</span>.<span style="color:#61AFEF;">log</span>(<span style="color:#98C379;">"Sum: "</span> + <span style="color:#E06C75;">sum</span>);
+<span style="color:#61AFEF;">console</span>.<span style="color:#61AFEF;">log</span>(<span style="color:#98C379;">"Product: "</span> + <span style="color:#E06C75;">product</span>);
+
+<span style="color:#82AAFF;">let</span> <span style="color:#E06C75;">myName</span> = <span style="color:#98C379;">"Explorer"</span>;
+    
+<span style="color:#82AAFF;">if</span> (<span style="color:#E06C75;">myName</span> <span style="color:#56B6C2;">===</span> <span style="color:#98C379;">"Explorer"</span>) {
+    <span style="color:#82AAFF;">var</span> <span style="color:#E06C75;">greeting</span> = <span style="color:#98C379;">"Welcome, Explorer!"</span>;
+    <span style="color:#61AFEF;">console</span>.<span style="color:#61AFEF;">log</span>(<span style="color:#E06C75;">greeting</span>);
+}
+
+<span style="color:#5C6370;">// The following line is a string literal</span>
+<span style="color:#98C379;">"Bella"</span>;
+    
+<span style="color:#5C6370;">// The following line is a numeric literal</span>
+<span style="color:#D19A66;">10</span>;
+</pre>
+
+                    </div>
+                    <div id="variables">
+                        <h3 class="chapter" id="javascriptVariables">Javascript Variables</h3>
+                        <p>Variables in <code>Javascript</code> are used to store data values that can be referenced
+                            and manipulated throughout the code. They are declared using the keywords
+                            <code>var</code>, <code>let</code>, or <code>const</code>, as could have been seen above.
+                            What's interesting is the difference between the <code>var</code>, <code>let</code>, and
+                            <code>const</code> keywords:
+                        </p>
+                        <ul>
+                            <li><code>var</code> is for global scope variables.</li>
+                            <li><code>let</code> is block-scoped and can be updated but not redeclared within the same
+                                scope.</li>
+                            <li><code>const</code> is block-scoped and cannot be updated or redeclared; it must be
+                                initialized at the time of declaration.</li>
+                        </ul>
+                        <p>Variables declared as <code>var</code> can be redeclared inside or outside a scope, but this
+                            can
+                            pose some issues for our scripts. This is because the block scoped variable overwrites the
+                            global one. For this precise reason using <code>let</code> or <code>const</code> is
+                            recommended because they are block scope and self contained.</p>
+                        <pre>
+<span style="color:#82AAFF;">function</span> <span style="color:#88C0D0;">declarations</span>() {
+    <span style="color:#C792EA;">var</span> <span style="color:#82AAFF;">global</span> = <span style="color:#F78C6C;">5</span>;
+
+    <span style="color:#C792EA;">let</span> <span style="color:#82AAFF;">blockScoped</span> = <span style="color:#F78C6C;">10</span>;
+
+    {
+        <span style="color:#C792EA;">var</span> <span style="color:#82AAFF;">global</span> = <span style="color:#F78C6C;">15</span>;
+        <span style="color:#6A9955;">// This will overwrite the previous global variable</span>
+
+        <span style="color:#C792EA;">let</span> <span style="color:#82AAFF;">blockScoped</span> = <span style="color:#F78C6C;">20</span>;
+        <span style="color:#6A9955;">// This is scoped to this block</span>
+    }
+
+    <span style="color:#C792EA;">const</span> <span style="color:#82AAFF;">constantValue</span> = <span style="color:#F78C6C;">50</span>;
+
+    <span style="color:#88C0D0;">console</span>.<span style="color:#DCDCAA;">log</span>(
+        <span style="color:#ECC48D;">"Global variable: "</span> + <span style="color:#82AAFF;">global</span>
+    );
+
+    <span style="color:#88C0D0;">console</span>.<span style="color:#DCDCAA;">log</span>(
+        <span style="color:#ECC48D;">"Block scoped variable: "</span> + <span style="color:#82AAFF;">blockScoped</span>
+    );
+
+    <span style="color:#88C0D0;">console</span>.<span style="color:#DCDCAA;">log</span>(
+        <span style="color:#ECC48D;">"Constant value: "</span> + <span style="color:#82AAFF;">constantValue</span>
+    );
+}
+</pre>
+
+                    </div>
+                    <div id="types">
+                        <h3 class="chapter">Javascript Types and Operators</h3>
+                        <p>Types are data and like all the programming languages that we have encountered so far, the
+                            types <code>Javascript</code> supports are, in close similarity to other languages:</p>
+                        <ul>
+                            <li><span class="important">Numbers</span> (integers, floats)</li>
+                            <li><span class="important">BigInt</span> (large integers)</li>
+                            <li><span class="important">Strings</span> (textual data)</li>
+                            <li><span class="important">Booleans</span> (true or false)</li>
+                            <li><span class="important">Objects</span> (collections of key-value pairs)</li>
+                            <li><span class="important">Arrays</span> (ordered collections of values)</li>
+                            <li><span class="important">Undefined</span> (a variable that has been declared but not
+                                assigned a value)</li>
+                            <li><span class="important">Null</span> (represents the intentional absence of any object
+                                value)</li>
+                        </ul>
+                        <p>Javascript, like we have already stated, is a dynamically typed language. A few examples of
+                            type declarations can be found below:</p>
+                        <pre>
+<span style="color:#82AAFF;">function</span> <span style="color:#88C0D0;">declarations</span>() {
+    <span style="color:#C792EA;">var</span> <span style="color:#82AAFF;">global</span> = <span style="color:#F78C6C;">5</span>;
+
+    <span style="color:#C792EA;">let</span> <span style="color:#82AAFF;">blockScoped</span> = <span style="color:#F78C6C;">10</span>;
+
+    {
+        <span style="color:#C792EA;">var</span> <span style="color:#82AAFF;">global</span> = <span style="color:#F78C6C;">15</span>;
+        <span style="color:#6A9955;">// This will overwrite the previous global variable</span>
+    }
+
+    <span style="color:#C792EA;">const</span> <span style="color:#82AAFF;">constantValue</span> = <span style="color:#F78C6C;">50</span>;
+
+    <span style="color:#88C0D0;">console</span>.<span style="color:#DCDCAA;">log</span>(<span style="color:#ECC48D;">"Global variable: "</span> + <span style="color:#82AAFF;">global</span>);
+    <span style="color:#88C0D0;">console</span>.<span style="color:#DCDCAA;">log</span>(<span style="color:#ECC48D;">"Block scoped variable: "</span> + <span style="color:#82AAFF;">blockScoped</span>);
+    <span style="color:#88C0D0;">console</span>.<span style="color:#DCDCAA;">log</span>(<span style="color:#ECC48D;">"Constant value: "</span> + <span style="color:#82AAFF;">constantValue</span>);
+}
+
+<span style="color:#82AAFF;">function</span> <span style="color:#88C0D0;">typeDeclaration</span>() {
+    <span style="color:#C792EA;">let</span> <span style="color:#82AAFF;">isActive</span> = <span style="color:#C3E88D;">true</span>;
+    <span style="color:#C792EA;">let</span> <span style="color:#82AAFF;">userName</span> = <span style="color:#ECC48D;">"StarTraveler"</span>;
+    <span style="color:#C792EA;">let</span> <span style="color:#82AAFF;">userScore</span> = <span style="color:#F78C6C;">1500</span>;
+
+    <span style="color:#C792EA;">var</span> <span style="color:#82AAFF;">userData</span> = { <span style="color:#82AAFF;">level</span>: <span style="color:#F78C6C;">5</span>, <span style="color:#82AAFF;">experience</span>: <span style="color:#F78C6C;">3000</span> };
+
+    {
+        <span style="color:#88C0D0;">console</span>.<span style="color:#DCDCAA;">log</span>(<span style="color:#ECC48D;">"Is Active: "</span> + <span style="color:#82AAFF;">isActive</span>);
+        <span style="color:#88C0D0;">console</span>.<span style="color:#DCDCAA;">log</span>(<span style="color:#ECC48D;">"User Name: "</span> + <span style="color:#82AAFF;">userName</span>);
+        <span style="color:#88C0D0;">console</span>.<span style="color:#DCDCAA;">log</span>(<span style="color:#ECC48D;">"User Score: "</span> + <span style="color:#82AAFF;">userScore</span>);
+        <span style="color:#88C0D0;">console</span>.<span style="color:#DCDCAA;">log</span>(
+            <span style="color:#ECC48D;">"User Data: Level - "</span> + <span style="color:#82AAFF;">userData</span>.<span style="color:#82AAFF;">level</span> +
+            <span style="color:#ECC48D;">", Experience - "</span> + <span style="color:#82AAFF;">userData</span>.<span style="color:#82AAFF;">experience</span>
+        );
+    }
+
+    <span style="color:#C792EA;">const</span> <span style="color:#82AAFF;">piValue</span> = <span style="color:#F78C6C;">3.14159</span>;
+    <span style="color:#88C0D0;">console</span>.<span style="color:#DCDCAA;">log</span>(<span style="color:#ECC48D;">"Value of Pi: "</span> + <span style="color:#82AAFF;">piValue</span>);
+    <span style="color:#88C0D0;">console</span>.<span style="color:#DCDCAA;">log</span>(<span style="color:#ECC48D;">"This variable cannot be reassigned."</span>);
+
+    <span style="color:#C792EA;">let</span> <span style="color:#82AAFF;">arrayExample</span> = [<span style="color:#F78C6C;">1</span>, <span style="color:#F78C6C;">2</span>, <span style="color:#F78C6C;">3</span>, <span style="color:#F78C6C;">4</span>, <span style="color:#F78C6C;">5</span>];
+    <span style="color:#88C0D0;">console</span>.<span style="color:#DCDCAA;">log</span>(
+        <span style="color:#ECC48D;">"Array Example: "</span> + <span style="color:#82AAFF;">arrayExample</span>.<span style="color:#DCDCAA;">join</span>(<span style="color:#ECC48D;">", "</span>)
+    );
+
+    <span style="color:#C792EA;">for</span> (<span style="color:#C792EA;">let</span> <span style="color:#82AAFF;">i</span> = <span style="color:#F78C6C;">0</span>; <span style="color:#82AAFF;">i</span> &lt; <span style="color:#82AAFF;">arrayExample</span>.<span style="color:#82AAFF;">length</span>; <span style="color:#82AAFF;">i</span>++) {
+        <span style="color:#88C0D0;">console</span>.<span style="color:#DCDCAA;">log</span>(
+            <span style="color:#ECC48D;">"Element "</span> + <span style="color:#82AAFF;">i</span> + <span style="color:#ECC48D;">": "</span> + <span style="color:#82AAFF;">arrayExample</span>[<span style="color:#82AAFF;">i</span>]
+        );
+    }
+
+    <span style="color:#C792EA;">class</span> <span style="color:#88C0D0;">SpaceShip</span> {
+        <span style="color:#DCDCAA;">constructor</span>(<span style="color:#82AAFF;">name</span>, <span style="color:#82AAFF;">speed</span>) {
+            <span style="color:#C792EA;">this</span>.<span style="color:#82AAFF;">name</span> = <span style="color:#82AAFF;">name</span>;
+            <span style="color:#C792EA;">this</span>.<span style="color:#82AAFF;">speed</span> = <span style="color:#82AAFF;">speed</span>;
+        }
+    }
+
+    <span style="color:#C792EA;">let</span> <span style="color:#82AAFF;">myShip</span> = <span style="color:#C792EA;">new</span> <span style="color:#88C0D0;">SpaceShip</span>(<span style="color:#ECC48D;">"Galaxy Cruiser"</span>, <span style="color:#ECC48D;">"Warp 5"</span>);
+    <span style="color:#88C0D0;">console</span>.<span style="color:#DCDCAA;">log</span>(
+        <span style="color:#ECC48D;">"SpaceShip Name: "</span> + <span style="color:#82AAFF;">myShip</span>.<span style="color:#82AAFF;">name</span> +
+        <span style="color:#ECC48D;">", Speed: "</span> + <span style="color:#82AAFF;">myShip</span>.<span style="color:#82AAFF;">speed</span>
+    );
+
+    <span style="color:#C792EA;">let</span> <span style="color:#82AAFF;">undefinedVariable</span>;
+    <span style="color:#88C0D0;">console</span>.<span style="color:#DCDCAA;">log</span>(<span style="color:#ECC48D;">"Undefined Variable: "</span> + <span style="color:#82AAFF;">undefinedVariable</span>);
+}
+</pre>
+                        <p>
+                            For a full reference of the types supported in Javascript, please visit the official
+                            documentation
+                            here: <a
+                                href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures">JavaScript
+                                Data Types and Data Structures</a>.
+                        </p>
+                        <p>As far as operators are concerned, they are almost identical to what we encounter in other
+                            programming languages and thus do not warrant a separate discussion here. Please check the
+                            reference on operators here: <a
+                                href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators">Operators
+                                Reference</a>.</p>
+                    </div>
+                </div>
+                <div class="col-2 my-4">
+                </div>
+        </main>
+    </div>
+</body>
+</html>
