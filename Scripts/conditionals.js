@@ -30,4 +30,23 @@ function sampleConditionals() {
     else {
         console.log("Try again next year!");
     }
+
+    switch (score) {
+        case 90:
+            console.log("Excellent work!");
+            break;
+        case 80:
+            console.log("Good job!");
+            break;
+
+        case 70:
+            console.log("You passed.");
+            break;
+        case 60:
+            console.log("Barely made it.");
+            break;
+        default:
+            console.log("Failed.");
+            break;
+    }
 }

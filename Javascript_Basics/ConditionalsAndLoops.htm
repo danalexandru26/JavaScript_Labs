@@ -27,7 +27,12 @@
             </div>
             <div class="row">
                 <aside class="col-2 d-none d-lg-block my-4">
-                    <div class="position-sticky" style="top: 4.2rem;">
+                    <div class="position-sticky" style="top: 4.2rem">
+                        <ul class="list-unstyled">
+                            <li><a href="#Introduction">Introduction</a></li>
+                            <li><a href="#Conditionals">Conditionals</a></li>
+                            <li><a href="#loops">Loops</a></li>
+                        </ul>
                     </div>
                 </aside>
 
@@ -91,7 +96,118 @@
     }
 }
 </pre>
+                        <p><span class="important">JavaScript</span> also implements a ternary operator for concise
+                            conditional expressions. It has the structure and functions akin to its <code>C++</code>
+                            analog. Please check the example below.</p>
+                        <pre>
+    <span style="color:#82AAFF;">let</span> <span style="color:#82AAFF;">age</span> = <span style="color:#F78C6C;">20</span>;
+    <span style="color:#82AAFF;">let</span> <span style="color:#82AAFF;">canVote</span> = <span style="color:#82AAFF;">age</span> &gt;= <span style="color:#F78C6C;">18</span> ? <span style="color:#ECC48D;">"Yes"</span> : <span style="color:#ECC48D;">"No"</span>;
+    <span style="color:#88C0D0;">console</span>.<span style="color:#DCDCAA;">log</span>(<span style="color:#ECC48D;">"Can vote: "</span>, <span style="color:#82AAFF;">canVote</span>);
+    </pre>
+                        <p>In order to avoid writing pesky and slow <code>if-else</code> chains, the use of
+                            <code>switch</code> statements is suggested. Here's an example of a <code>switch</code>
+                            statement in JavaScript:
+                        </p>
+                        <pre>
+<span style="color:#C792EA;">switch</span> (<span style="color:#82AAFF;">score</span>) {
+    <span style="color:#C792EA;">case</span> <span style="color:#F78C6C;">90</span>:
+        <span style="color:#88C0D0;">console</span>.<span style="color:#DCDCAA;">log</span>(<span style="color:#ECC48D;">"Excellent work!"</span>);
+        <span style="color:#C792EA;">break</span>;
 
+    <span style="color:#C792EA;">case</span> <span style="color:#F78C6C;">80</span>:
+        <span style="color:#88C0D0;">console</span>.<span style="color:#DCDCAA;">log</span>(<span style="color:#ECC48D;">"Good job!"</span>);
+        <span style="color:#C792EA;">break</span>;
+
+    <span style="color:#C792EA;">case</span> <span style="color:#F78C6C;">70</span>:
+        <span style="color:#88C0D0;">console</span>.<span style="color:#DCDCAA;">log</span>(<span style="color:#ECC48D;">"You passed."</span>);
+        <span style="color:#C792EA;">break</span>;
+
+    <span style="color:#C792EA;">case</span> <span style="color:#F78C6C;">60</span>:
+        <span style="color:#88C0D0;">console</span>.<span style="color:#DCDCAA;">log</span>(<span style="color:#ECC48D;">"Barely made it."</span>);
+        <span style="color:#C792EA;">break</span>;
+
+    <span style="color:#C792EA;">default</span>:
+        <span style="color:#88C0D0;">console</span>.<span style="color:#DCDCAA;">log</span>(<span style="color:#ECC48D;">"Failed."</span>);
+        <span style="color:#C792EA;">break</span>;
+}
+</pre>
+
+                    </div>
+                    <div id="loops">
+                        <h3 class="chapter">Loops</h3>
+                        <p>Loops help us avoid writing lengthy repetitive code by allowing us to execute a block of code
+                            multiple times based on a condition. JavaScript provides several types of loops, including
+                            <code>for</code>, <code>while</code>, and <code>do...while</code>. Here are examples of
+                            each:
+                        </p>
+                        <pre>
+<span style="color:#C792EA;">function</span> <span style="color:#82AAFF;">loops</span>() {
+    <span style="color:#C792EA;">let</span> <span style="color:#82AAFF;">nameArray</span> = [
+        <span style="color:#ECC48D;">"Bella"</span>,
+        <span style="color:#ECC48D;">"Charlie"</span>,
+        <span style="color:#ECC48D;">"Daisy"</span>,
+        <span style="color:#ECC48D;">"Max"</span>
+    ];
+
+    <span style="color:#C792EA;">for</span> (<span style="color:#C792EA;">let</span> <span style="color:#82AAFF;">i</span> = <span style="color:#F78C6C;">0</span>;
+         <span style="color:#82AAFF;">i</span> &lt; <span style="color:#82AAFF;">nameArray</span>.<span style="color:#DCDCAA;">length</span>;
+         <span style="color:#82AAFF;">i</span>++) {
+
+        <span style="color:#88C0D0;">console</span>.<span style="color:#DCDCAA;">log</span>(
+            <span style="color:#ECC48D;">"Name "</span> +
+            (<span style="color:#82AAFF;">i</span> + <span style="color:#F78C6C;">1</span>) +
+            <span style="color:#ECC48D;">": "</span> +
+            <span style="color:#82AAFF;">nameArray</span>[<span style="color:#82AAFF;">i</span>]
+        );
+    }
+
+    <span style="color:#C792EA;">let</span> <span style="color:#82AAFF;">sum</span> = <span style="color:#F78C6C;">0</span>;
+    <span style="color:#C792EA;">let</span> <span style="color:#82AAFF;">numsArray</span> = [
+        <span style="color:#F78C6C;">5</span>,
+        <span style="color:#F78C6C;">10</span>,
+        <span style="color:#F78C6C;">15</span>,
+        <span style="color:#F78C6C;">20</span>,
+        <span style="color:#F78C6C;">25</span>
+    ];
+    <span style="color:#C792EA;">let</span> <span style="color:#82AAFF;">index</span> = <span style="color:#F78C6C;">0</span>;
+
+    <span style="color:#C792EA;">while</span> (<span style="color:#82AAFF;">index</span> &lt; <span style="color:#82AAFF;">numsArray</span>.<span style="color:#DCDCAA;">length</span>) {
+        <span style="color:#82AAFF;">sum</span> += <span style="color:#82AAFF;">numsArray</span>[<span style="color:#82AAFF;">index</span>];
+        <span style="color:#82AAFF;">index</span>++;
+    }
+
+    <span style="color:#88C0D0;">console</span>.<span style="color:#DCDCAA;">log</span>(
+        <span style="color:#ECC48D;">"Total Sum: "</span> + <span style="color:#82AAFF;">sum</span>
+    );
+
+    <span style="color:#C792EA;">let</span> <span style="color:#82AAFF;">count</span> = <span style="color:#F78C6C;">0</span>;
+    <span style="color:#C792EA;">let</span> <span style="color:#82AAFF;">position</span> = <span style="color:#F78C6C;">0</span>;
+    <span style="color:#C792EA;">let</span> <span style="color:#82AAFF;">positionsArray</span> = [
+        <span style="color:#F78C6C;">2</span>,
+        <span style="color:#F78C6C;">4</span>,
+        <span style="color:#F78C6C;">6</span>,
+        <span style="color:#F78C6C;">8</span>,
+        <span style="color:#F78C6C;">10</span>
+    ];
+
+    <span style="color:#C792EA;">if</span> (<span style="color:#82AAFF;">positionsArray</span>.<span style="color:#DCDCAA;">length</span> &gt; <span style="color:#F78C6C;">0</span>) {
+        <span style="color:#C792EA;">do</span> {
+            <span style="color:#82AAFF;">count</span> += <span style="color:#82AAFF;">positionsArray</span>[<span style="color:#82AAFF;">position</span>];
+            <span style="color:#82AAFF;">position</span>++;
+        } <span style="color:#C792EA;">while</span> (<span style="color:#82AAFF;">position</span> &lt; <span style="color:#82AAFF;">positionsArray</span>.<span style="color:#DCDCAA;">length</span>);
+    }
+
+    <span style="color:#88C0D0;">console</span>.<span style="color:#DCDCAA;">log</span>(
+        <span style="color:#ECC48D;">"Counted Sum: "</span> + <span style="color:#82AAFF;">count</span>
+    );
+}
+</pre>
+                        <p>Because the condition in a <code>do...while</code> loop is checked after the loop body
+                            executes, it ensures that the loop body runs at least once, even if the condition is false
+                            initially. Moreover, if using <code>do...while</code> to iterate over an array(which is not
+                            generally recommended), it may be useful to nest the loop inside a conditional statement. In
+                            our case, it's nested inside an <code>if</code> statement.
+                        </p>
                     </div>
                 </div>
         </main>
