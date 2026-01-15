@@ -1,4 +1,4 @@
-function loops{
+function loop() {
     let nameArray = ["Bella", "Charlie", "Daisy", "Max"];
 
     for (let i = 0; i < nameArray.length; i++) {
