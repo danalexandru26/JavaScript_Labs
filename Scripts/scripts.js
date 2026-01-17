@@ -39,3 +39,28 @@ function setInnerPreformat() {
 function alertMessage() {
     window.alert("Remember to drink water!");
 }
+
+
+function print(message) {
+    logData();
+}
+
+function doSum(a){
+    sum = 0;
+
+    for(i = 0; i < a; i++){
+        sum += i;
+    }
+    return sum;
+}
+
+function doProduct(a, b){
+    return a * b;
+}
+
+function executeFunctions() {
+    let totalSum = doSum(10);
+    console.log("The total sum is: " + totalSum);
+    let totalProduct = doProduct(5, 4);
+    console.log("The total product is: " + totalProduct);
+}
