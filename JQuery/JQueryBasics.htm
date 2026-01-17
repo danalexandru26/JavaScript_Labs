@@ -1,0 +1,156 @@
+<!DOCTYPE HTML>
+
+<html lang="en" data-bs-theme="dark">
+
+<head>
+    <title>Javascript Index</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="../Styles/styles.css">
+    <script src="../Scripts/scripts.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="../Scripts/JQuery.js"></script>
+
+</head>
+
+
+<body>
+    <div class="container">
+        <main>
+            <div class="row my-4 justify-content-center">
+                <div class="col-12">
+                    <h1 class="display-4 text-center">
+                        JQuery Basics
+                    </h1>
+                </div>
+                <hr class="w-50">
+            </div>
+            <div class="row">
+                <aside class="col-2 d-none d-lg-block my-4">
+                    <div class="position-sticky" style="top: 4.2rem">
+                    </div>
+                </aside>
+
+                <div class="col-8 justify-content-center my-4">
+                    <div id="introduction">
+                        <p><span class="important">JQuery</span> is a fast, and feature-rich JavaScript library.
+                            It makes things like HTML document traversal and manipulation, event handling, and
+                            animation much simpler with an easy-to-use API that works across a multitude of browsers.
+                        </p>
+                        <h2>Getting Started with JQuery</h2>
+                        <p>To start using <code>JQuery</code>, you can include it in your HTML file by adding the
+                            following script tag within the <code>&lt;head&gt;</code> section:</p>
+                        <pre>
+<span style="color:#C792EA;">$(document).ready</span>(<span style="color:#C792EA;">function</span>() {
+    <span style="color:#C792EA;">$("p")</span>.<span style="color:#82AAFF;">click</span>(<span style="color:#C792EA;">function</span>() {
+        <span style="color:#C792EA;">$(this)</span>.<span style="color:#82AAFF;">hide</span>();
+    });
+});
+</pre>
+                        <p>This is only a sample and basic <code>JQuery</code> example. All it does is hide the clicked
+                            paragraph. As we can see, its format is human-readable and easy to understand.
+                            <code>JQuery</code> offers a beautiful pattern for structured understanding.
+                        </p>
+
+                        <p>For a more thorough list of features, please access the <code>JQuery</code> documentation, by
+                            clicking on the following hyperlink: <a
+                                href="https://www.w3schools.com/jquery/jquery_examples.asp">JQuery Function
+                                Selection</a>.
+                        </p>
+                    </div>
+                    <div id="adding-jquery">
+                        <h2>Adding JQuery to our Project</h2>
+                        <p>When it comes to adding <code>JQuery</code> to our project, we have two options:</p>
+                        <ul>
+                            <li>Using a CDN (Content Delivery Network)</li>
+                            <li>Downloading and Hosting Locally</li>
+                        </ul>
+                        <p>Using a CDN is simpler, all we have to do is add the following line to our HTML file:</p>
+                        <pre>
+&lt;head&gt;
+    &lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+</pre>
+                        <p>Alternatively, we can download the jQuery library and host it locally on our server. All we
+                            need to do is link its file location.</p>
+                        <pre>
+&lt;head&gt;
+    &lt;script src="jquery-3.7.1.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+</pre>
+
+                    </div>
+                    <div id="syntax">
+                        <h2>JQuery Syntax</h2>
+                        <p>We write JQuery in order to manipulate or perform certain activities once an <html> element
+                            is accessed in certain ways by the user. The formal syntax structure is the following:</p>
+                        <pre>
+
+$(selector).action()
+                        </pre>
+                        <p>These elements have the following meaning:</p>
+                        <ul>
+                            <li><strong>$</strong>: This symbol is used to access jQuery.</li>
+                            <li><strong>selector</strong>: This is used to "find" (or select) HTML elements.</li>
+                            <li><strong>action()</strong>: This is the jQuery action to be performed on the selected
+                                element(s).</li>
+                        </ul>
+                        <p>The <code>selector</code> element is used to query for a specific <html> element (defined by
+                            a tag name, id, class, or other attributes).</p>
+                        <p>The <code>action()</code> element is used to perform a specific action on the selected
+                            element(s).</p>
+                        <p>In the first <code>JQuery</code> example on this page, the <code>ready</code> action is used
+                            to specify that we want to execute the code within only once the page has finished loading.
+                            This prevents accidental execution and certain unexpected behaviors.</p>
+                    </div>
+                    <div id="JQuery Selectors">
+                        <h2>JQuery Samples</h2>
+                        <p><code>JQuery</code> selectors can be any of the following element-defining attributes:</p>
+                        <ul>
+                            <li>Element Selector: Selects elements based on the element name. Example:
+                                <code>$("p")</code>
+                            </li>
+                            <li>ID Selector: Selects a single element based on its ID. Example: <code>$("#myId")</code>
+                            </li>
+                            <li>Class Selector: Selects elements based on their class attribute. Example:
+                                <code>$(".myClass")</code>
+                            </li>
+                            <li>Attribute Selector: Selects elements based on a specific attribute. Example:
+                                <code>$("[type='text']")</code>
+                            </li>
+                        </ul>
+
+                        <p><code>JQuery</code> actions define on which user-generated event they are triggered. For a
+                            complete list of <code>actions</code> please access the following hyperlink:<a
+                                href="https://api.jquery.com/" target="_blank"></a></p>
+                        <p>Do keep in mind that the elements need not be hierarchically related. Within the body of a
+                            <code>JQuery</code> function, we can access any other <code>html</code> selector. Its
+                            presence only signifies that this element is
+                            changed once a certain action is triggered.</p>
+
+                        <p id="JQpara">For example, this paragraph will be toggled once the button below is clicked.</p>
+                        <div class="d-flex justify-content-center">
+                            <button id="exampleButton" class="btn btn-primary">Hide Paragraph</button>
+                        </div>
+                        <p class="my-4">The <code>JQuery</code> code for the function that defined the behavior is as
+                            follows:</p>
+                        <pre>
+<span style="color:#C792EA;">$(document).ready</span>(<span style="color:#C792EA;">function</span>() {
+    <span style="color:#C792EA;">$("#exampleButton")</span>.<span style="color:#82AAFF;">click</span>(<span style="color:#C792EA;">function</span>() {
+        <span style="color:#C792EA;">$("#JQpara")</span>.<span style="color:#82AAFF;">toggle</span>();
+        <span style="color:#C792EA;">$(this)</span>.<span style="color:#82AAFF;">text</span>(<span style="color:#C792EA;">function</span>(<span style="color:#F07178;">_</span>, <span style="color:#F07178;">currentText</span>) {
+            <span style="color:#C792EA;">return</span> <span style="color:#F07178;">currentText</span> === <span style="color:#FFEB95;">"Hide Paragraph"</span> ? <span style="color:#FFEB95;">"Show Paragraph"</span> : <span style="color:#FFEB95;">"Hide Paragraph"</span>;
+        });
+    });
+});
+</pre>
+
+                    </div>
+                </div>
+        </main>
+    </div>
+</body>
+
+</html>
