@@ -117,6 +117,24 @@
                         <h3>Child Traversal</h3>
                         <p>Iterating over children is just as simple. Please consult with the
                             examples below for a better understanding.</p>
+                        <pre>
+<span style="color:#C792EA;">function</span> childTraversal() {
+    <span style="color:#C792EA;">$(document).ready</span>(<span style="color:#C792EA;">function</span> () {
+        <span style="color:#C792EA;">let</span> childrenList = <span style="color:#C792EA;">$</span>(<span style="color:#FFEB95;">"#introduction"</span>).<span style="color:#82AAFF;">children</span>();
+        <span style="color:#C792EA;">let</span> checkChild = <span style="color:#C792EA;">$</span>(<span style="color:#FFEB95;">"#introduction"</span>).<span style="color:#82AAFF;">find</span>(<span style="color:#FFEB95;">"p"</span>);
+
+        <span style="color:#C792EA;">console</span>.<span style="color:#82AAFF;">log</span>(<span style="color:#FFEB95;">"Children: "</span> + childrenList);
+
+        <span style="color:#C792EA;">if</span> (checkChild.length) {
+            <span style="color:#C792EA;">console</span>.<span style="color:#82AAFF;">log</span>(<span style="color:#FFEB95;">"Found the child(ren)"</span>);
+        }
+        <span style="color:#C792EA;">else</span> {
+            <span style="color:#C792EA;">console</span>.<span style="color:#82AAFF;">log</span>(<span style="color:#FFEB95;">"No such children have been found"</span>);
+        }
+    });
+}
+</pre>
+
                     </div>
                 </div>
             </div>

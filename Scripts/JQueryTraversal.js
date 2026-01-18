@@ -16,3 +16,18 @@ function parentTraversal() {
     });
 }
 
+function childTraversal() {
+    $(document).ready(function () {
+        let childrenList = $("#introduction").children();
+        let checkChild = $("#introduction").find("p");
+
+        console.log("Children: " + childrenList);
+
+        if (checkChild.length) {
+            console.log("Found the child(ren)");
+        }
+        else {
+            console.log("No such children have been found");
+        }
+    });
+}
