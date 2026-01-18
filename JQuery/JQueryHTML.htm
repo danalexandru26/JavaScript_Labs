@@ -141,9 +141,59 @@
                                 <li><code>before()</code>, useful for adding elements before the current DOM element.
                                 </li>
                             </ul>
-                            <p>These functinos are relatively easy to use. There will be examples of the use cases each
+                            <p>These functions are relatively easy to use. There will be examples of the use cases each
                                 of
                                 these statements have in the code snippets below.</p>
+                            <pre>
+<span style="color:#C792EA;">function</span> sAppend() {
+    <span style="color:#C792EA;">let</span> plainText = <span style="color:#FFEB95;">"This is a dynamically generated paragraph content"</span>;
+    <span style="color:#C792EA;">$("#expandParagraph")</span>.<span style="color:#82AAFF;">append</span>(plainText);
+}
+
+<span style="color:#C792EA;">function</span> sPrepend() {
+    <span style="color:#C792EA;">let</span> plainText = <span style="color:#FFEB95;">"This content is prepended to the selected paragraph"</span>;
+    <span style="color:#C792EA;">$("#expandParagraph")</span>.<span style="color:#82AAFF;">prepend</span>(plainText);
+}
+
+<span style="color:#C792EA;">function</span> sAfter() {
+    <span style="color:#C792EA;">let</span> plainText = <span style="color:#FFEB95;">"This content is inserted after the selected paragraph"</span>;
+    <span style="color:#C792EA;">$("#expandParagraph")</span>.<span style="color:#82AAFF;">after</span>(plainText);
+}
+
+<span style="color:#C792EA;">function</span> sBefore() {
+    <span style="color:#C792EA;">let</span> plainText = <span style="color:#FFEB95;">"This content is inserted before the selected paragraph"</span>;
+    <span style="color:#C792EA;">$("#expandParagraph")</span>.<span style="color:#82AAFF;">before</span>(plainText);
+}
+</pre>
+                            <p>We can also use this functions to insert an arbitrary number of <code>html</code>
+                                elements at the desired position. The workflow for this usually involves defining the
+                                tags and their content within a <code>javascript</code> function and then inserting it
+                                with the <code>JQuery</code> add statement.</p>
+
+                            <pre>
+<span style="color:#C792EA;">function</span> appendN() {
+    <span style="color:#C792EA;">let</span> tag = <span style="color:#FFEB95;">"&lt;p&gt;Static paragraph.&lt;/p&gt;"</span>;
+    <span style="color:#C792EA;">let</span> plainContent = <span style="color:#FFEB95;">"This is a dynamically generated paragraph"</span>;
+
+    <span style="color:#C792EA;">let</span> tag2 = <span style="color:#C792EA;">$</span>(<span style="color:#FFEB95;">"&lt;p&gt;&lt;/p&gt;"</span>)
+        .<span style="color:#82AAFF;">text</span>(<span style="color:#FFEB95;">"JQuery is so cool"</span>);
+
+    <span style="color:#C792EA;">let</span> tag3 = <span style="color:#82AAFF;">document</span>.<span style="color:#82AAFF;">createElement</span>(<span style="color:#FFEB95;">"p"</span>);
+    tag3.<span style="color:#82AAFF;">innerHTML</span> = plainContent;
+
+    <span style="color:#C792EA;">$</span>(<span style="color:#FFEB95;">"body"</span>)
+        .<span style="color:#82AAFF;">append</span>(tag, tag2, tag3);
+}
+
+<span style="color:#C792EA;">function</span> afterN() {
+    <span style="color:#C792EA;">let</span> tag = <span style="color:#C792EA;">$</span>(<span style="color:#FFEB95;">"&lt;em&gt;&lt;/em&gt;"</span>)
+        .<span style="color:#82AAFF;">text</span>(<span style="color:#FFEB95;">"Use JQuery, it's easier."</span>);
+
+    <span style="color:#C792EA;">$</span>(<span style="color:#FFEB95;">"#samplePara"</span>)
+        .<span style="color:#82AAFF;">after</span>(tag);
+}
+</pre>
+
                         </div>
                     </div>
                 </div>

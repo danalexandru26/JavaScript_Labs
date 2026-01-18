@@ -23,3 +23,44 @@ $(document).ready(function () {
         });
     });
 });
+
+function sAppend() {
+    let plainText = "This is a dynamically generated paragraph content";
+    $("#expandParagraph").append(plainText);
+}
+
+function sPrepend() {
+    let plainText = "This content is prepended to the selected paragraph";
+    $("#expandParagraph").prepend(plainText);
+
+}
+
+function sAfter() {
+    let plainText = "This content is inserted after the selected paragraph";
+    $("#expandParagraph").after(plainText);
+
+}
+
+function sBefore() {
+    let plainText = "This content is inserted before the selected paragraph";
+    $("#expandParagraph").before(plainText);
+}
+
+function appendN() {
+    let tag = "<p>Static paragraph.</p>";
+    let plainContent = "This is a dynamically generated paragraph";
+
+    let tag2 = $("<p></p>").text("JQuery is so cool");
+
+    let tag3 = document.createElement("p");
+    tag3.innerHTML = plainContent;
+
+    $("body").append(tag, tag2, tag3);
+}
+
+function afterN() {
+    let tag = $("<em></em>").text("Use JQuery, it's easier.");
+
+    $("#samplePara").after(tag);
+
+}
