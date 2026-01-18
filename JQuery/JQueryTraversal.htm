@@ -1,0 +1,127 @@
+<!DOCTYPE HTML>
+
+<html lang="en" data-bs-theme="dark">
+
+<head>
+    <title>Javascript Index</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="../Styles/styles.css">
+    <script src="../Scripts/scripts.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="../Scripts/JQuery.js"></script>
+
+</head>
+
+
+<body>
+    <div class="container">
+        <main>
+            <div class="row my-4 justify-content-center">
+                <div class="col-12">
+                    <h1 class="display-4 text-center">
+                        JQuery Traversal
+                    </h1>
+                </div>
+                <hr class="w-50">
+            </div>
+            <div class="row">
+                <aside class="col-2 d-none d-lg-block my-4">
+                    <div class="position-sticky" style="top: 4.2rem">
+                    </div>
+                </aside>
+
+                <div class="col-8 justify-content-center my-4">
+                    <div id="introduction">
+                        <h3>Introduction</h3>
+                        <p>We can use <code>JQuery</code> statements to iterate over the elements of our DOM's tree
+                            structure. This means we
+                            can access the children, parents or siblings of a selected element.</p>
+                        <p>A basic sample structure of the ordinary DOM can be found below. Note the hierarchy of
+                            objects
+                            and their subordination.</p>
+                        <div class="text-center my-4">
+                            <img class="center" src="../resources//images/htmlTree.svg" width=540px height=350px
+                                alt="HTML Tree Structure">
+                        </div>
+                    </div>
+                    <div id="traversal">
+                        <p>The functions that we may use for accessing parents are as follows:</p>
+                        <ul>
+                            <li><code>parent()</code> - returns the direct hierarchical parent of the current selected
+                                tag.</li>
+                            <li><code>parents()</code> - returns the full list of parents, up to the root
+                                <code>&lt;html&gt;</code>
+                                tag.
+                            </li>
+                            <li><code>parentUntil()</code>- returns the list of parents between the selected element and
+                                the one
+                                provided as a function argument.</li>
+                        </ul>
+                        <p>On the other hand, the functions we use for accessing children nodes are the
+                            following:</p>
+                        <ul>
+                            <li><code>children()</code> - returns the list of children the selected element has.</li>
+                            <li><code>find()</code> - returns a list of all the children that respect a selector
+                                parameter. This parameter can be any of the characteristics of a tag/
+                            </li>
+                        </ul>
+                        <p>When it comes to accessing sibling elements, the choice of functions is more varied. For a
+                            full list of these methods please access the following hyperlink: <a
+                                href="https://www.geeksforgeeks.org/jquery/jquery-traversing-siblings/"
+                                target="_blank">Sibling Access</a>.</p>
+                        <p>The most useful methods, for which samples will also be provided are the following:</p>
+                        <ul>
+                            <li><code>siblings()</code> - this method will return a list of all the siblings our
+                                selected element has. Optional selectors can also be provided as function parameters
+                                .</li>
+                            <li><code>next()</code> - this method will return the next sibling (if it exists), in the
+                                order it appear in the DOM.
+                                .</li>
+                            <li><code>prev()</code> - this method will return the previous sibling (if it exists), in
+                                the order it appear in the DOM.
+                                .</li>
+
+                        </ul>
+                        <p>A broader definition of all methods and their intent of use is found at the next hyperlink:
+                            <a href="https://www.w3schools.com/Jquery/jquery_traversing.asp" target="_blank">JQuery
+                                Traversal</a>.
+                        </p>
+                    </div>
+                    <div id="parentTraversal">
+                        <h3>Parent Traversal</h3>
+                        <p>Examples of parent traversal, in the form of code snippets, can be found below.</p>
+                        <pre>
+<span style="color:#C792EA;">function</span> parentTraversal() {
+    <span style="color:#C792EA;">$(document).ready</span>(<span style="color:#C792EA;">function</span> () {
+        <span style="color:#C792EA;">let</span> parent = <span style="color:#C792EA;">$</span>(<span style="color:#FFEB95;">"#childParagraph"</span>).<span style="color:#82AAFF;">parent</span>();
+        <span style="color:#C792EA;">let</span> parentsList = <span style="color:#C792EA;">$</span>(<span style="color:#FFEB95;">"#childParagraph"</span>).<span style="color:#82AAFF;">parents</span>();
+        <span style="color:#C792EA;">let</span> parentsUntil = <span style="color:#C792EA;">$</span>(<span style="color:#FFEB95;">"#childParagraph"</span>).<span style="color:#82AAFF;">parentsUntil</span>(<span style="color:#FFEB95;">"div"</span>);
+
+        <span style="color:#C792EA;">console</span>.<span style="color:#82AAFF;">log</span>(parent);
+
+        <span style="color:#C792EA;">for</span> (<span style="color:#C792EA;">let</span> i = 0; i &lt; parentsList.length; i++) {
+            <span style="color:#C792EA;">console</span>.<span style="color:#82AAFF;">log</span>(parentsList[i]);
+        }
+
+        <span style="color:#C792EA;">for</span> (<span style="color:#C792EA;">let</span> i = 0; i &lt; parentsUntil.length; i++) {
+            <span style="color:#C792EA;">console</span>.<span style="color:#82AAFF;">log</span>(parentsUntil[i]);
+        }
+    });
+}
+</pre>
+                    </div>
+                    <div id="childTraversal">
+                        <h3>Child Traversal</h3>
+                        <p>Iterating over children is just as simple. Please consult with the
+                            examples below for a better understanding.</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>
