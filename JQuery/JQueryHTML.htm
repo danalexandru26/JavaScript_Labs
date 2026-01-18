@@ -54,21 +54,33 @@
                             <code>DOM</code>. This list includes the following:
                         </p>
                         <ul>
-                            <li><code>text()</code>, useful for accessing the text content of selected objects</li>
+                            <li><code>text()</code>, useful for accessing the text content of selected objects.</li>
                             <li><code>html()</code>, useful for accessing the content of <code>html</code> elements,
-                                including markup</li>
-                            <li><code>val()</code>, useful for accessing the value of form elements</li>
+                                including markup.</li>
+                            <li><code>val()</code>, useful for accessing the value of form elements.</li>
+                            <li><code>append()</code>, useful for adding elements at the end of the current selected
+                                tag.
+                            </li>
+                            <li><code>remove()</code>, useful for deleting elements and their children.
+                            </li>
                         </ul>
-                        <p>These functions seem quite close in function. However, it is useful to remember that most of
-                            the content on a <code>HTML</code> page is text. As such, different functions provide
-                            different methods for text manipulation, in respect to the context of the tag that generated
-                            an event.</p>
-
-                        <p id="paraTest">In order to make <code>JQuery</code> feel more natural, some examples of
-                            <code>DOM</code>
-                            manipulation will be provided in the code snippets below.
+                        <p>These are many more functions which we can call in order to <code>set</code>,
+                            <code>add</code>, and <code>remove</code> DOM elements.
                         </p>
-                        <pre>
+                        <div id="getJQuery">
+                            <h3>Get Statements</h3>
+                            <p>These functions seem quite close in function. However, it is useful to remember that most
+                                of
+                                the content on a <code>HTML</code> page is text. As such, different functions provide
+                                different methods for text manipulation, in respect to the context of the tag that
+                                generated
+                                an event.</p>
+
+                            <p id="paraTest">In order to make <code>JQuery</code> feel more natural, some examples of
+                                <code>DOM</code>
+                                manipulation will be provided in the code snippets below.
+                            </p>
+                            <pre>
 <span style="color:#C792EA;">$(document).ready</span>(<span style="color:#C792EA;">function</span>() {
     <span style="color:#82AAFF;">console</span>.<span style="color:#82AAFF;">log</span>(<span style="color:#FFEB95;">"jQuery has loaded!"</span>);
     <span style="color:#C792EA;">$("#paraTest")</span>.<span style="color:#82AAFF;">click</span>(<span style="color:#C792EA;">function</span>() {
@@ -79,11 +91,13 @@
     });
 });
 </pre>
-                        <p>Once the paragraph above is clicked upon, a new <code>alert</code> message, with the
-                            paragraph's text, will be generated. This <code>JQuery</code> is a textbook example of a
-                            <code>get</code> DOM statement.
-                        </p>
+                            <p>Once the paragraph above is clicked upon, a new <code>alert</code> message, with the
+                                paragraph's text, will be generated. This <code>JQuery</code> is a textbook example of a
+                                <code>get</code> DOM statement.
+                            </p>
+                        </div>
                         <div id="setJQuery">
+                            <h3>Set statements</h3>
                             <p>We can also write <code>set</code> statements in order to modify the content of desired
                                 tags.
                                 In order to achieve this, we use the same three functinos described above. The only
@@ -107,6 +121,29 @@
                             <p>As we can see, <code>set</code> statements are quite simple. What's even better is that
                                 the structure above is generally correct for most modifications we wish to do on our
                                 tags. </p>
+                        </div>
+                        <div id="addStatements">
+                            <h3>Add Statements</h3>
+                            <p>As has been described in the precedent paragraphs, we can use DOM statements to add
+                                content to our DOM elements. There is a variety of functions that we may use, depending
+                                on the position we wish our inserted element to have.</p>
+                            <p>A list of <code>add</code> statements can be found below:</p>
+                            <ul>
+                                <li><code>append()</code>, useful for adding elements at the end of the current selected
+                                    tag.
+                                </li>
+                                <li><code>prepend()</code>, useful for adding elements at the beginning of the current
+                                    selected
+                                    tag.
+                                </li>
+                                <li><code>after()</code>, useful for adding elements after the current DOM element.
+                                </li>
+                                <li><code>before()</code>, useful for adding elements before the current DOM element.
+                                </li>
+                            </ul>
+                            <p>These functinos are relatively easy to use. There will be examples of the use cases each
+                                of
+                                these statements have in the code snippets below.</p>
                         </div>
                     </div>
                 </div>
