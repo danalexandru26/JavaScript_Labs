@@ -135,6 +135,31 @@
 }
 </pre>
                     </div>
+                    <div id="siblingTraversal">
+                        <h3>Sibling Traversal</h3>
+                        <p>We will look into some sibling traversal functions below. For further information, please
+                            check the link attached in the previous section.</p>
+                        <pre>
+<span style="color:#C792EA;">function</span> siblingTraversal() {
+    <span style="color:#C792EA;">$(document).ready</span>(<span style="color:#C792EA;">function</span> () {
+        <span style="color:#C792EA;">let</span> siblings = <span style="color:#C792EA;">$</span>(<span style="color:#FFEB95;">"p"</span>).<span style="color:#82AAFF;">siblings</span>();
+        <span style="color:#C792EA;">let</span> nextSibling = <span style="color:#C792EA;">$</span>(<span style="color:#FFEB95;">"p"</span>).<span style="color:#82AAFF;">next</span>();
+        <span style="color:#C792EA;">let</span> prevSibling = <span style="color:#C792EA;">$</span>(<span style="color:#FFEB95;">"p"</span>).<span style="color:#82AAFF;">prev</span>();
+
+        <span style="color:#C792EA;">if</span>(siblings.length){
+            <span style="color:#C792EA;">console</span>.<span style="color:#82AAFF;">log</span>(<span style="color:#FFEB95;">"Siblings: "</span>, siblings);
+        }
+        <span style="color:#C792EA;">if</span>(nextSibling.length){
+            <span style="color:#C792EA;">console</span>.<span style="color:#82AAFF;">log</span>(<span style="color:#FFEB95;">"Next sibling: "</span>, nextSibling);
+        }
+        <span style="color:#C792EA;">if</span>(prevSibling.length){
+            <span style="color:#C792EA;">console</span>.<span style="color:#82AAFF;">log</span>(<span style="color:#FFEB95;">"Previous sibling: "</span>, prevSibling);
+        }
+    });
+}
+</pre>
+
+                    </div>
                 </div>
             </div>
         </main>

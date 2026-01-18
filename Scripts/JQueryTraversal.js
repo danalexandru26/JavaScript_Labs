@@ -31,3 +31,21 @@ function childTraversal() {
         }
     });
 }
+
+        function siblingTraversal() {
+            $(document).ready(function () {
+                let siblings = $("p").siblings();
+                let nextSibling = $("p").next();
+                let prevSibling = $("p").prev();
+
+                if(siblings.length){
+                    console.log("Siblings: ", siblings);
+                }
+                if(nextSibling.length){
+                    console.log("Next sibling: ", nextSibling);
+                }
+                if(prevSibling.length){
+                    console.log("Previous sibling: ", prevSibling);
+                }
+            });
+        }
