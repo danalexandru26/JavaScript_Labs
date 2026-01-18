@@ -64,8 +64,50 @@
                             different methods for text manipulation, in respect to the context of the tag that generated
                             an event.</p>
 
-                        <p>In order to make <code>JQuery</code> feel more natural, some examples of <code>DOM</code>
-                            manipulation will be provided in the code snippets below.</p>
+                        <p id="paraTest">In order to make <code>JQuery</code> feel more natural, some examples of
+                            <code>DOM</code>
+                            manipulation will be provided in the code snippets below.
+                        </p>
+                        <pre>
+<span style="color:#C792EA;">$(document).ready</span>(<span style="color:#C792EA;">function</span>() {
+    <span style="color:#82AAFF;">console</span>.<span style="color:#82AAFF;">log</span>(<span style="color:#FFEB95;">"jQuery has loaded!"</span>);
+    <span style="color:#C792EA;">$("#paraTest")</span>.<span style="color:#82AAFF;">click</span>(<span style="color:#C792EA;">function</span>() {
+        <span style="color:#82AAFF;">alert</span>(
+            <span style="color:#FFEB95;">"The paragraph has the following text: "</span> +
+            <span style="color:#C792EA;">$("#paraTest")</span>.<span style="color:#82AAFF;">text</span>()
+        );
+    });
+});
+</pre>
+                        <p>Once the paragraph above is clicked upon, a new <code>alert</code> message, with the
+                            paragraph's text, will be generated. This <code>JQuery</code> is a textbook example of a
+                            <code>get</code> DOM statement.
+                        </p>
+                        <div id="setJQuery">
+                            <p>We can also write <code>set</code> statements in order to modify the content of desired
+                                tags.
+                                In order to achieve this, we use the same three functinos described above. The only
+                                substantial difference is that we have to define <code>callback</code> functions.</p>
+                            <p>The callback function has two parameters of note. The first is the <code>id</code> of the
+                                current selected element in the list of available elements of our <code>DOM</code>
+                                structure. The second is the old value of the attribute, field or property that we wish
+                                to
+                                modify.</p>
+
+                            <p>The generic structure of a <code>JQuery</code> set statement is described above.</p>
+                            <pre>
+<span style="color:#C792EA;">$(document).ready</span>(<span style="color:#C792EA;">function</span>() {
+    <span style="color:#C792EA;">$("#genericID")</span>.<span style="color:#82AAFF;">click</span>(<span style="color:#C792EA;">function</span>() {
+        <span style="color:#C792EA;">$("#genericChild")</span>.<span style="color:#82AAFF;">text</span>(<span style="color:#C792EA;">function</span>(id, oldText) {
+            <span style="color:#C792EA;">return</span> oldText + <span style="color:#FFEB95;">" is deprecated"</span>;
+        });
+    });
+});
+</pre>
+                            <p>As we can see, <code>set</code> statements are quite simple. What's even better is that
+                                the structure above is generally correct for most modifications we wish to do on our
+                                tags. </p>
+                        </div>
                     </div>
                 </div>
         </main>
