@@ -17,6 +17,22 @@ $(document).ready(function () {
 });
 
 $(document).ready(function () {
+    $("#AJAXLoad").click(function () {
+        let display = false;
+        $("#loadAJAXParagraph").load("../auxiliary/ajaxLoadPara.txt");
+        $(this).text(function (_, oldText) {
+            if (oldText === "Load Paragraph") {
+                display = true;
+                return "Remove Paragraph";
+            }
+            else display = false;
+            return "Load Paragraph";
+        });
+        $("#loadAJAXParagraph").toggle(display);
+    });
+});
+
+$(document).ready(function () {
     $("#genericID").click(function () {
         $("#genericChild").text(function (id, oldText) {
             return oldText + "is deprecated";

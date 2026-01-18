@@ -1,0 +1,112 @@
+<!DOCTYPE HTML>
+
+<html lang="en" data-bs-theme="dark">
+
+<head>
+    <title>Javascript Index</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="../Styles/styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="../Scripts/JQuery.js"></script>
+
+</head>
+
+
+<body>
+    <div class="container">
+        <main>
+            <div class="row my-4 justify-content-center">
+                <div class="col-12">
+                    <h1 class="display-4 text-center">
+                        JQuery AJAX
+                    </h1>
+                </div>
+                <hr class="w-50">
+            </div>
+            <div class="row">
+                <aside class="col-2 d-none d-lg-block my-4">
+                    <div class="position-sticky" style="top: 4.2rem">
+                    </div>
+                </aside>
+
+                <div class="col-8 justify-content-center my-4">
+                    <div id="introduction">
+                        <h3>Introduction</h3>
+                        <p><span class="important">AJAX</span> stands for <i>Asynchronous Javascript And XML</i>. It
+                            allows us to load dynamic data to our webpages without actually reloading the whole page. As
+                            such, <code>AJAX</code> exchanges data with a backend server and can also be thought of as a
+                            series of methods that we can use in interacting with the deeper layers of our page.
+                        </p>
+
+                        <p><span class="important">AJAX</span> is generally used together with <code>JQuery</code>.
+                            Using <code>AJAX</code> by its own can prove to be a difficult task. This is because
+                            different browsers requier different preambles for loading and properly executing
+                            <code>AJAX</code> functions. <span class="important">JQuery</span> performs the dependency
+                            heavy lifting in our stead.
+                        </p>
+
+                        <p>There are several <code>AJAX</code> methods of note, out of which <code>load</code>,
+                            <code>get</code> and <code>post</code> are the most important to us. We will go over each
+                            one in a separate section while
+                            providing examples to illustrate their usability.
+                        </p>
+                    </div>
+                    <div id="load">
+                        <h3>JQuery Load</h3>
+                        <p>The <code>JQuery</code> <code>load()</code> method is a powerful <code>AJAX</code> tool that
+                            allows us to load data from a server and place it within a selected DOM element. It has the
+                            following basic structure:</p>
+                        <pre>
+<span style="color:#C792EA;">function</span> loadContent() {
+    <span style="color:#C792EA;">$</span>(<span style="color:#FFEB95;">"#result"</span>).<span style="color:#82AAFF;">load</span>(<span style="color:#FFEB95;">"ajax_content.html"</span>, <span style="color:#C792EA;">function</span>(response, status, xhr) {
+        <span style="color:#C792EA;">if</span> (status == <span style="color:#FFEB95;">"success"</span>) {
+            <span style="color:#C792EA;">console</span>.<span style="color:#82AAFF;">log</span>(<span style="color:#FFEB95;">"Content loaded successfully!"</span>);
+        }
+        <span style="color:#C792EA;">else</span> {
+            <span style="color:#C792EA;">console</span>.<span style="color:#82AAFF;">log</span>(<span style="color:#FFEB95;">"Error: "</span> + xhr.<span style="color:#82AAFF;">statusText</span>);
+        }
+    });
+}
+</pre>
+                        <p>The <code>URL</code> field is mandatory and it points to the file that we wish to load into
+                            an element (in this case identified by the <code>result</code> id).</p>
+                        <div class="d-flex justify-content-center">
+                            <button id="AJAXLoad" class="btn btn-primary">Load Paragraph</button>
+                        </div>
+                        <div id="loadAJAXParagraph">
+
+                        </div>
+                        <p class="my-4">The <code>JQuery</code> code that generated the bevahior above is the following:
+                        </p>
+                        <pre>
+<span style="color:#C792EA;">$(document).ready</span>(<span style="color:#C792EA;">function</span>() {
+    <span style="color:#C792EA;">$</span>(<span style="color:#FFEB95;">"#AJAXLoad"</span>).<span style="color:#82AAFF;">click</span>(<span style="color:#C792EA;">function</span>() {
+        <span style="color:#C792EA;">let</span> display = <span style="color:#C792EA;">false</span>;
+        <span style="color:#C792EA;">$</span>(<span style="color:#FFEB95;">"#loadAJAXParagraph"</span>)
+            .<span style="color:#82AAFF;">load</span>(<span style="color:#FFEB95;">"../auxiliary/ajaxLoadPara.txt"</span>);
+        <span style="color:#C792EA;">$(this)</span>.<span style="color:#82AAFF;">text</span>(<span style="color:#C792EA;">function</span>(_, oldText) {
+            <span style="color:#C792EA;">if</span> (oldText === <span style="color:#FFEB95;">"Load Paragraph"</span>) {
+                display = <span style="color:#C792EA;">true</span>;
+                <span style="color:#C792EA;">return</span> <span style="color:#FFEB95;">"Remove Paragraph"</span>;
+            } <span style="color:#C792EA;">else</span> {
+                display = <span style="color:#C792EA;">false</span>;
+                <span style="color:#C792EA;">return</span> <span style="color:#FFEB95;">"Load Paragraph"</span>;
+            }
+        });
+        <span style="color:#C792EA;">$</span>(<span style="color:#FFEB95;">"#loadAJAXParagraph"</span>)
+            .<span style="color:#82AAFF;">toggle</span>(display);
+    });
+});
+</pre>
+
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>

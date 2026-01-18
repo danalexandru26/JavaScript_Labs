@@ -45,16 +45,16 @@ function print(message) {
     logData();
 }
 
-function doSum(a){
+function doSum(a) {
     sum = 0;
 
-    for(i = 0; i < a; i++){
+    for (i = 0; i < a; i++) {
         sum += i;
     }
     return sum;
 }
 
-function doProduct(a, b){
+function doProduct(a, b) {
     return a * b;
 }
 
