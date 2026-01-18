@@ -64,3 +64,11 @@ function afterN() {
     $("#samplePara").after(tag);
 
 }
+
+function removeElement() {
+    $("body").remove();
+}
+
+function emptyElement() {
+    $("body").empty();
+}

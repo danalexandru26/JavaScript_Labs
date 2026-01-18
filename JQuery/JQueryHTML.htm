@@ -193,7 +193,37 @@
         .<span style="color:#82AAFF;">after</span>(tag);
 }
 </pre>
+                        </div>
+                        <div id="removeStatements">
+                            <h3>Remove statements</h3>
+                            <p>Remove statements perform the opposite action of the <code>add</code> statements
+                                previously discussed. We can use them to either remove elements and their children or
+                                just the children of the selected elements.</p>
+                            <p>The two most relevant removal functions are the following:</p>
+                            <ul>
+                                <li><code>remove()</code>, useful for deleting elements and their children.
+                                </li>
+                                <li><code>empty()</code>, useful for deleting the children of the selected tag.
+                                </li>
+                            </ul>
+                            <p>Theres nothing more to be said about their functionality. Please check the exampels below
+                                for a sample of their declaration and use.</p>
+                            <pre>
+<span style="color:#C792EA;">function</span> removeElement() {
+    <span style="color:#C792EA;">$</span>(<span style="color:#FFEB95;">"body"</span>)
+        .<span style="color:#82AAFF;">remove</span>();
+}
 
+<span style="color:#C792EA;">function</span> emptyElement() {
+    <span style="color:#C792EA;">$</span>(<span style="color:#FFEB95;">"body"</span>)
+        .<span style="color:#82AAFF;">empty</span>();
+}
+</pre>
+                            <p>There is no real use behind deleting the whole content of the <code>body</code> tag with
+                                the <code>remove</code> or <code>empty</code> functions.
+                                However, I thought it would serve as quite a funky sample. Examples are not solely
+                                defined by their usefulness, but also by their absurdity and showcase of malicious
+                                action. It's important to be knowledgeable of extent.</p>
                         </div>
                     </div>
                 </div>
