@@ -40,6 +40,24 @@ $(document).ready(function () {
     });
 });
 
+$("#buttonGet").click(function () {
+    $.get("../ASP/data.asp", function (data, status) {
+        alert("Data: " + data + "\nStatus: " + status);
+    });
+});
+
+$("#buttonPost").click(function () {
+    $.post("submission.asp",
+        {
+            name: "ISS Ziggurat",
+            type: "Research Vessel",
+            purpose: "Scientific Research"
+        },
+        function (data, status) {
+            alert("Data: " + data + "\nStatus: " + status);
+        });
+});
+
 function sAppend() {
     let plainText = "This is a dynamically generated paragraph content";
     $("#expandParagraph").append(plainText);

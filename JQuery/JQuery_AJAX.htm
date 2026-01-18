@@ -114,8 +114,55 @@
                         <p>As for <code>post(url, data, callback)</code>, it is used when we wish to send pieces of
                             information to the server for various purposes, such as submissions or authentications.</p>
 
-                        <p>Sample examples of these two methods in the snippets can be found below.</p>
+                        <p>The data will be obtained or pushed to a server page that adheres to the <code>asp</code>
+                            standard. Using this method, we can interact with server-side scripts and retrieve or submit
+                            data dynamically. It also helps that this format provides a comprehensive way to handle
+                            information traffic. For more information on <code>ASP</code> please follow the next
+                            hyperlink <a
+                                href="https://learn.microsoft.com/en-us/previous-versions/iis/6.0-sdk/ms524796(v=vs.90)"
+                                target="_blank">Creating ASP Pages</a>.</p>
                     </div>
+
+                    <div id="get">
+                        <h3>JQuery Get</h3>
+                        <p>Here is an example of how to use the <code>get</code> method to retrieve data from a server:
+                        </p>
+                        <pre>
+<span style="color:#C792EA;">$("#buttonGet")</span>.<span style="color:#82AAFF;">click</span>(<span style="color:#C792EA;">function</span>() {
+    <span style="color:#C792EA;">$.get</span>(<span style="color:#FFEB95;">"../ASP/data.asp"</span>, <span style="color:#C792EA;">function</span>(data, status) {
+        <span style="color:#C792EA;">alert</span>(<span style="color:#FFEB95;">"Data: "</span> + data + <span style="color:#FFEB95;">"\nStatus: "</span> + status);
+    });
+});
+</pre>
+                        <p>Do keep in mind that this snippet will load in all the contents of the addressed ASP file. In
+                            order to only extract what is of interest to us, we will need to do extensive data
+                            processing on the results returned. It would also help to have a server that dynamically
+                            generates the content we need and then places it in the <code>asp</code> file for retrieval.
+                        </p>
+                    </div>
+                    <div id="post">
+                        <h3>JQuery Post</h3>
+                        <p><span class="important">Post</span> is used when we wish to send pieces of information to the
+                            server for
+                            various purposes, such as submissions or authentications. A sample call can be found
+                            below.
+                        </p>
+                        <pre>
+<span style="color:#C792EA;">$("#buttonPost")</span>.<span style="color:#82AAFF;">click</span>(<span style="color:#C792EA;">function</span>() {
+    <span style="color:#C792EA;">$.post</span>(<span style="color:#FFEB95;">"submission.asp"</span>,
+        {
+            name: <span style="color:#FFEB95;">"ISS Ziggurat"</span>,
+            type: <span style="color:#FFEB95;">"Research Vessel"</span>,
+            purpose: <span style="color:#FFEB95;">"Scientific Research"</span>
+        },
+        <span style="color:#C792EA;">function</span>(data, status) {
+            <span style="color:#C792EA;">alert</span>(<span style="color:#FFEB95;">"Data: "</span> + data + <span style="color:#FFEB95;">"\nStatus: "</span> + status);
+        }
+    );
+});
+</pre>
+                    </div>
+
                 </div>
             </div>
         </main>

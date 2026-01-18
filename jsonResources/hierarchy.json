@@ -1,0 +1,99 @@
+{
+    "spaceships": [
+        {
+            "name": "Star Explorer",
+            "type": "Interstellar Cruiser",
+            "crew": {
+                "captain": {"name": "Jane Doe", "rank": "Captain"},
+                "firstOfficer": {"name": "John Smith", "rank": "First Officer"},
+                "engineer": {"name": "Emily Davis", "rank": "Chief Engineer"}
+            },
+            "specifications": {
+                "length": "300 meters",
+                "width": "100 meters",
+                "maxSpeed": "Warp 9.9"
+            },
+            "shipyard": {
+                "system": {
+                    "planet": {"name": "Terra", "country": "Australia", "city": "Sydney"}
+                }
+            }
+        },
+        {
+            "name": "Galaxy Voyager",
+            "type": "Battle Cruiser",
+            "crew": {
+                "captain": {"name": "Mark Johnson", "rank": "Captain"},
+                "firstOfficer": {"name": "Sarah Lee", "rank": "First Officer"},
+                "engineer": {"name": "Tom Brown", "rank": "Chief Engineer"}
+            },
+            "specifications": {
+                "length": "350 meters",
+                "width": "120 meters",
+                "maxSpeed": "Warp 9.7"
+            },
+            "shipyard": {
+                "system": {
+                    "planet": {"name": "Nova Prime", "country": "USA", "city": "Houston"}
+                }
+            }
+        },
+        {
+            "name": "Cosmos Ranger",
+            "type": "Scout Ship",
+            "crew": {
+                "captain": {"name": "Alice Green", "rank": "Captain"},
+                "firstOfficer": {"name": "Brian White", "rank": "First Officer"},
+                "engineer": {"name": "Clara Black", "rank": "Chief Engineer"}
+            },
+            "specifications": {
+                "length": "200 meters",
+                "width": "70 meters",
+                "maxSpeed": "Warp 9.5"
+            },
+            "shipyard": {
+                "system": {
+                    "planet": {"name": "Zenith", "country": "Japan", "city": "Tokyo"}
+                }
+            }
+        },
+        {
+            "name": "Nebula Striker",
+            "type": "Frigate",
+            "crew": {
+                "captain": {"name": "David Miller", "rank": "Captain"},
+                "firstOfficer": {"name": "Eva Adams", "rank": "First Officer"},
+                "engineer": {"name": "Frank Wilson", "rank": "Chief Engineer"}
+            },
+            "specifications": {
+                "length": "280 meters",
+                "width": "90 meters",
+                "maxSpeed": "Warp 9.6"
+            },
+            "shipyard": {
+                "system": {
+                    "planet": {"name": "Orion", "country": "Germany", "city": "Berlin"}
+                }
+            }
+        },
+        {
+            "name": "Quantum Falcon",
+            "type": "Research Vessel",
+            "crew": {
+                "captain": {"name": "Grace Taylor", "rank": "Captain"},
+                "firstOfficer": {"name": "Henry Clark", "rank": "First Officer"},
+                "engineer": {"name": "Isla Martinez", "rank": "Chief Engineer"}
+            },
+            "specifications": {
+                "length": "320 meters",
+                "width": "110 meters",
+                "maxSpeed": "Warp 9.8"
+            },
+            "shipyard": {
+                "system": {
+                    "planet": {"name": "Vega", "country": "Canada", "city": "Toronto"}
+                }
+            }
+        }
+    ]
+}
