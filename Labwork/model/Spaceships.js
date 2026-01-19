@@ -1,307 +1,277 @@
-
-/*---------------------------------------------------------------------------*/
-
-function Telefoane()
-{
-	//console.log("constructor Projects");
-
-	this.id="telefoane";
-	this.children=null;
+function Spaceships() {
+	this.id = "Spaceships";
+	this.children = null;
 };
 
-/*---------------------------------------------------------------------------*/
-
-Telefoane.prototype.read=function()
-{
-	console.log("Telefoane.read");
-	
+Spaceships.prototype.read = function () {
 	$("#main-panel").empty();
-	
-	var telefoane=this;
+
+	var Spaceships = this;
 	$.ajax(
-	{
-		url: "./telefoane.php?read=1",
-		beforeSend : function(xhr) 
 		{
-			xhr.overrideMimeType("text/plain; charset=x-user-defined");
-		}
-	})
-	.done(function(data) 
-	{
-		console.log(data);
-		telefoane.onRead(JSON.parse(data));
-	});
+			url: "./spaceships.php?read=1",
+			beforeSend: function (xhr) {
+				xhr.overrideMimeType("text/plain; charset=x-user-defined");
+			}
+		})
+		.done(function (data) {
+			console.log(data);
+			Spaceships.onRead(JSON.parse(data));
+		});
 };
 
-Telefoane.prototype.onRead=function(data)
-{
-	console.log("Telefoane.onRead");
-	
-	var items=data.items;
-	
-	this.children=new Array();
-	for(i=0;i<items.length;i++)
-	{
-		this.children[i]=new Telefon(
-			items[i].id,
-			items[i].producator,
-			items[i].model,
-			items[i].pret,
-			items[i].creation_date);
+Spaceships.prototype.onRead = function (data) {
+	var items = data.items;
+
+	this.children = new Array();
+	for (i = 0; i < items.length; i++) {
+		this.children[i] = new Spaceship(
+			items[i].name,
+			items[i].type,
+			items[i].shipyard,
+			items[i].crew);
 	}
 
 	this.show();
 };
 
-Telefoane.prototype.show=function()
-{
-	console.log("Telefoane.show");
-	
-	var divTelefoane=$('<div class="list-group"> </div>');
+Spaceships.prototype.show = function () {
+	var divSpaceships = $('<div class="list-group"> </div>');
 
-	itemTelefon=$(
-		'<a href="#" class="list-group-item">'+
-		'<div class="btn-group-xs mb-2">'+
-		'<button type="button" class="btn btn-sm btn-outline-warning" onclick="telefoane.newTelefon();">'+
-		'<i class="bi bi-pencil-square me-1"></i> Telefon nou...</button>'+
-		'</div>'+
-		'</a>'
-	);		
-	divTelefoane.append(itemTelefon);
-	
-	for(i=0;i<this.children.length;i++)
-	{				
-		itemTelefon=$(
-		'<a href="#" class="list-group-item" id="telefon'+this.children[i].id+'">'+
-		'Producator: '+this.children[i].producator+' '+
-		'Model: '+this.children[i].model+' '+
-		'Pret: '+this.children[i].pret+' '+
-		'Created at: '+this.children[i].creation_date+' '+
-		
-		'<div class="d-flex justify-content-end gap-2">' +
-		'<button type="button" class="btn btn-sm btn-outline-warning" ' + 'onclick="telefoane.editTelefon(' + this.children[i].id + ');">' +
-        '<i class="bi bi-pencil-square me-1"></i>Edit' + '</button>' +
-		'<button type="button" class="btn btn-sm btn-outline-danger" ' + 'onclick="telefoane.deleteTelefon(' + this.children[i].id + ');">' +
-        '<i class="bi bi-trash me-1"></i>Delete' +
-		'</button>' +
+	itemSpaceship = $(
+		'<a href="#" class="list-group-item">' +
+		'<div class="btn-group-xs mb-2">' +
+		'<button type="button" class="btn btn-sm btn-outline-warning" onclick="spaceships.newSpaceship();">' +
+		'<i class="bi bi-pencil-square me-1"></i> New Spaceship...</button>' +
 		'</div>' +
 		'</a>'
-		);		
-		divTelefoane.append(itemTelefon);
+	);
+	divSpaceships.append(itemSpaceship);
+
+	for (i = 0; i < this.children.length; i++) {
+		itemSpaceship = $(
+			'<a href="#" class="list-group-item" id="spaceship' + this.children[i].name + '">' +
+			'Name: ' + this.children[i].name + ' ' +
+			'Type: ' + this.children[i].type + ' ' +
+			'Shipyard: ' + this.children[i].shipyard + ' ' +
+			'Crew: ' + this.children[i].crew + ' ' +
+
+			'<div class="d-flex justify-content-end gap-2">' +
+			'<button type="button" class="btn btn-sm btn-outline-warning" ' + 'onclick="spaceships.editSpaceship(\'' + this.children[i].name + '\');">' +
+			'<i class="bi bi-pencil-square me-1"></i>Edit' + '</button>' +
+			'<button type="button" class="btn btn-sm btn-outline-danger" ' + 'onclick="spaceships.deleteSpaceship(\'' + this.children[i].name + '\');">' +
+			'<i class="bi bi-trash me-1"></i>Delete' +
+			'</button>' +
+			'</div>' +
+			'</a>'
+		);
+		divSpaceships.append(itemSpaceship);
 	}
-	$("#main-panel").append(divTelefoane);
+	$("#main-panel").append(divSpaceships);
 }
 
 /*---------------------------------------------------------------------------*/
 
-Telefoane.prototype.newTelefon=function()
-{
-	console.log("Telefoane.newTelefon");
-	
-	var divInputGroup=$('<div class="input-group-sm mb-3" id="inputGroup"> </div>');
+Spaceships.prototype.newSpaceship = function () {
+	var divInputGroup = $('<div class="input-group-sm mb-3" id="inputGroup"> </div>');
 	divInputGroup.append($('<p> &nbsp; </p>'));
 
 	divInputGroup.append($(
-		'<div class="input-group mb-2">'+
-		'<span class="input-group-text">Producator</span>'+		
-		'<input id="producator" type="text" class="form-control producator" placeholder="producator">'+
-		'</div>'+
+		'<div class="input-group mb-2">' +
+		'<span class="input-group-text">Name</span>' +
+		'<input id="name" type="text" class="form-control name" placeholder="name">' +
+		'</div>' +
 		''
 	));
 	divInputGroup.append($(
-		'<div class="input-group mb-2">'+
-		'<span class="input-group-text">Model</span>'+		
-		'<input id="model" type="text" class="form-control model" placeholder="model">'+
-		'</div>'+
+		'<div class="input-group mb-2">' +
+		'<span class="input-group-text">Type</span>' +
+		'<input id="type" type="text" class="form-control type" placeholder="type">' +
+		'</div>' +
 		''
 	));
 	divInputGroup.append($(
-		'<div class="input-group mb-2">'+
-		'<span class="input-group-text">Pret</span>'+		
-		'<input id="pret" type="text" class="form-control pret" placeholder="pret">'+
-		'</div>'+
+		'<div class="input-group mb-2">' +
+		'<span class="input-group-text">Shipyard</span>' +
+		'<input id="shipyard" type="text" class="form-control shipyard" placeholder="shipyard">' +
+		'</div>' +
 		''
 	));
-	
 	divInputGroup.append($(
-		'<div class="btn-group btn-group-xs">'+
-		'<button type="button" class="btn btn-sm btn-outline-warning" '+'onclick="telefoane.createTelefon();"><i class="bi bi-save me-1"></i> Save</button>'+
-		'<button type="button" class="btn btn-sm btn-outline-primary" '+'onclick="telefoane.onCreateTelefon();"><i class="bi bi-x-circle"></i> Cancel</button>'+		
+		'<div class="input-group mb-2">' +
+		'<span class="input-group-text">Crew</span>' +
+		'<input id="crew" type="number" class="form-control crew" placeholder="crew">' +
+		'</div>' +
+		''
+	));
+
+
+	divInputGroup.append($(
+		'<div class="btn-group btn-group-xs">' +
+		'<button type="button" class="btn btn-sm btn-outline-warning" ' + 'onclick="spaceships.createSpaceship();"><i class="bi bi-save me-1"></i> Save</button>' +
+		'<button type="button" class="btn btn-sm btn-outline-primary" ' + 'onclick="spaceships.onCreateSpaceship();"><i class="bi bi-x-circle"></i> Cancel</button>' +
 		'</div>'
 	));
-	
+
 	$("#main-panel").append(divInputGroup);
 }
 
-Telefoane.prototype.createTelefon=function()
-{
-	console.log("Telefoane.saveTelefon");
-	
-	var producator=$("#producator").val();
-	var model=$("#model").val();
-	var pret=$("#pret").val();
+Spaceships.prototype.createSpaceship = function () {
+	let name = $("#name").val();
+	let type = $("#type").val();
+	let shipyard = $("#shipyard").val();
+	let crew = $("#crew").val();
 
-	console.log(producator);
-	console.log(model);
-	console.log(pret);
-	
-	var telefoane=this;	
+	console.log(name);
+	console.log(type);
+	console.log(shipyard);
+	console.log(crew);
+
+
+	var spaceships = this;
 	$.ajax(
-	{
-		url: "./telefoane.php?create=1"+
-		"&producator="+producator+
-		"&model="+model+
-		"&pret="+pret,
-		
-		beforeSend : function(xhr) 
 		{
-			xhr.overrideMimeType("text/plain; charset=x-user-defined");
-		}
-	})
-	.done(function(data) 
-	{
-		console.log(data);
-		telefoane.onCreateTelefon(JSON.parse(data));
-	});
+			url: "./spaceships.php?create=1" +
+				"&name=" + name +
+				"&type=" + type +
+				"&shipyard=" + shipyard +
+				"&crew=" + crew,
+
+			beforeSend: function (xhr) {
+				xhr.overrideMimeType("text/plain; charset=x-user-defined");
+			}
+		})
+		.done(function (data) {
+			console.log(data);
+			spaceships.onCreateSpaceship(JSON.parse(data));
+		});
 }
 
-Telefoane.prototype.onCreateTelefon=function(message)
-{
-	console.log("Telefoane.onCreateTelefon");
+Spaceships.prototype.onCreateSpaceship = function (message) {
+	console.log("Spaceships.onCreateSpaceship");
 	console.log(message);
-	
 	$("#inputGroup").remove();
 	this.read();
 }
 
 /*---------------------------------------------------------------------------*/
 
-Telefoane.prototype.getTelefon=function(id)
-{
-	for(i=0;i<this.children.length;i++)
-	{
-		if(this.children[i].id==id)
-		{
+Spaceships.prototype.getSpaceship = function (name) {
+	for (i = 0; i < this.children.length; i++) {
+		if (this.children[i].name == name) {
 			return this.children[i];
 		}
 	}
-	
+
 	return null;
 }
 
 /*---------------------------------------------------------------------------*/
 
-Telefoane.prototype.editTelefon=function(id)
-{
-	console.log("Telefoane.editTelefon");
-	
-	var telefoane=this;
-	var divInputGroup=$('<div class="input-group-sm mb-3" id="inputGroup"> </div>');
+Spaceships.prototype.editSpaceship = function (name) {
+	console.log("Spaceships.editSpaceship");
+
+	var spaceships = this;
+	var divInputGroup = $('<div class="input-group-sm mb-3" id="inputGroup"> </div>');
 	divInputGroup.append($('<p> &nbsp; </p>'));
-	
+
+	var spaceship = spaceships.getSpaceship(name);
+
 	divInputGroup.append($(
-		'<div class="input-group mb-2">'+
-		'<span class="input-group-text">Producator</span>'+		
-		'<input id="producator" type="text" class="form-control producator" placeholder="producator" value="'+telefoane.getTelefon(id).producator+'">'+
-		'</div>'+
-
-		'<div class="input-group mb-2">'+
-		'<span class="input-group-text">Model</span>'+		
-		'<input id="model" type="text" class="form-control model" placeholder="model" value="'+telefoane.getTelefon(id).model+'">'+
-		'</div>'+
-
-		'<div class="input-group mb-2">'+
-		'<span class="input-group-text">Pret</span>'+		
-		'<input id="pret" type="text" class="form-control pret" placeholder="pret" value="'+telefoane.getTelefon(id).pret+'">'+
-		'</div>'+
-		
-		'<div class="input-group mb-2">'+
-		'<span class="input-group-text">Creation date</span>'+		
-		'<input id="creation_date" type="text" class="form-control creation_date" placeholder="creation_date" value="'+telefoane.getTelefon(id).creation_date+'">'+
-		'</div>'+
+		'<div class="input-group mb-2">' +
+		'<span class="input-group-text">Name</span>' +
+		'<input id="name" type="text" class="form-control name" placeholder="name" value="' + spaceship.name + '" readonly>' +
+		'</div>' +
 		''
 	));
 	divInputGroup.append($(
-		'<div class="btn-group btn-group-xs">'+
-		'<button type="button" class="btn btn-sm btn-outline-warning" '+'onclick="telefoane.updateTelefon('+id+');"><i class="bi bi-save me-1"></i> Save</button>'+
-		'<button type="button" class="btn btn-sm btn-outline-primary" '+'onclick="telefoane.onUpdateTelefon();"><i class="bi bi-x-circle"></i> Cancel</button>'+
+		'<div class="input-group mb-2">' +
+		'<span class="input-group-text">Type</span>' +
+		'<input id="type" type="text" class="form-control type" placeholder="type" value="' + spaceship.type + '">' +
+		'</div>' +
+		''
+	));
+	divInputGroup.append($(
+		'<div class="input-group mb-2">' +
+		'<span class="input-group-text">Shipyard</span>' +
+		'<input id="shipyard" type="text" class="form-control shipyard" placeholder="shipyard" value="' + spaceship.shipyard + '">' +
+		'</div>' +
+		''
+	));
+	divInputGroup.append($(
+		'<div class="input-group mb-2">' +
+		'<span class="input-group-text">Crew</span>' +
+		'<input id="crew" type="number" class="form-control crew" placeholder="crew" value="' + spaceship.crew + '">' +
+		'</div>' +
+		''
+	));
+	divInputGroup.append($(
+		'<div class="btn-group btn-group-xs">' +
+		'<button type="button" class="btn btn-sm btn-outline-warning" onclick="spaceships.updateSpaceship(\'' + name + '\');"><i class="bi bi-save me-1"></i> Save</button>' +
+		'<button type="button" class="btn btn-sm btn-outline-primary" onclick="spaceships.onUpdateSpaceship();"><i class="bi bi-x-circle"></i> Cancel</button>' +
 		'</div>'
 	));
-	
-	$("#main-panel").append(divInputGroup);	
+
+	$("#main-panel").append(divInputGroup);
 }
 
-Telefoane.prototype.updateTelefon=function(id)
-{
-	console.log("Telefoane.updateTelefon");
+Spaceships.prototype.updateSpaceship = function (name) {
+	let type = $("#type").val();
+	let shipyard = $("#shipyard").val();
+	let crew = $("#crew").val();
 
-	var producator=$("#producator").val();
-	var model=$("#model").val();
-	var pret=$("#pret").val();
-	var creation_date=$("#creation_date").val();
-	
-	console.log(producator);
-	console.log(model);
-	console.log(pret);
-	console.log(creation_date);
-	
-	var telefoane=this;	
+	console.log(name);
+	console.log(type);
+	console.log(shipyard);
+	console.log(crew);
+
+	var spaceships = this;
 	$.ajax(
-	{
-		url: "./telefoane.php?update=1"+
-		"&id="+id+
-		"&producator="+producator+
-		"&model="+model+
-		"&pret="+pret+
-		"&creation_date="+creation_date,
-		
-		beforeSend : function(xhr) 
 		{
-			xhr.overrideMimeType("text/plain; charset=x-user-defined");
-		}
-	})
-	.done(function(data) 
-	{
-		console.log(data);
-		telefoane.onUpdateTelefon(JSON.parse(data),id);
-	});
+			url: "./spaceships.php?update=1" +
+				"&name=" + name +
+				"&type=" + type +
+				"&shipyard=" + shipyard +
+				"&crew=" + crew,
+
+			beforeSend: function (xhr) {
+				xhr.overrideMimeType("text/plain; charset=x-user-defined");
+			}
+		})
+		.done(function (data) {
+			console.log(data);
+			spaceships.onUpdateSpaceship(JSON.parse(data), name);
+		});
 }
 
-Telefoane.prototype.onUpdateTelefon=function(message)
-{
-	console.log("Telefoane.onUpdateTelefon");
-	
+Spaceships.prototype.onUpdateSpaceship = function (message) {
+	console.log("Spaceships.onUpdateSpaceship");
+
 	$("#inputGroup").remove();
 	this.read();
 }
 
 /*---------------------------------------------------------------------------*/
 
-Telefoane.prototype.deleteTelefon=function(id)
-{
-	console.log("Telefoane.deleteTelefon");
-		
-	var telefoane=this;	
+Spaceships.prototype.deleteSpaceship = function (name) {
+	var spaceships = this;
 	$.ajax(
-	{
-		url: "./telefoane.php?delete=1&id="+id,
-		beforeSend : function(xhr) 
 		{
-			xhr.overrideMimeType("text/plain; charset=x-user-defined");
-		}
-	})
-	.done(function(data) 
-	{
-		//console.log(data);
-		telefoane.onDeleteTelefon(JSON.parse(data),id);
-	});
+			url: "./spaceships.php?delete=1&name=" + name,
+			beforeSend: function (xhr) {
+				xhr.overrideMimeType("text/plain; charset=x-user-defined");
+			}
+		})
+		.done(function (data) {
+			console.log("Delete response:", data);
+			spaceships.onDeleteSpaceship(null, name);
+		})
+		.fail(function (xhr, status, error) {
+			console.error("Delete failed:", status, error);
+		});
 }
 
-Telefoane.prototype.onDeleteTelefon=function(message,id)
-{
-	console.log("Telefoane.onDeleteTelefon");
-	
-	//$("#telefon"+id).remove();
+Spaceships.prototype.onDeleteSpaceship = function (message, name) {
 	this.read();
 }
 
