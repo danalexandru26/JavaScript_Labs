@@ -3,6 +3,15 @@ function Spaceships() {
 	this.children = null;
 };
 
+$(document).ready(function () {
+	$("#searchText").keypress(function (e) {
+		if (e.key == 'Enter') {
+			var text = $(this).val();
+			spaceships.search(text);
+		}
+	});
+});
+
 Spaceships.prototype.read = function () {
 	$("#main-panel").empty();
 
@@ -132,9 +141,9 @@ Spaceships.prototype.createSpaceship = function () {
 	$.ajax(
 		{
 			url: "./spaceships.php?create=1" +
-				"&name=" + name +
-				"&type=" + type +
-				"&shipyard=" + shipyard +
+				"&name=" + encodeURIComponent(name) +
+				"&type=" + encodeURIComponent(type) +
+				"&shipyard=" + encodeURIComponent(shipyard) +
 				"&crew=" + crew,
 
 			beforeSend: function (xhr) {
@@ -164,6 +173,50 @@ Spaceships.prototype.getSpaceship = function (name) {
 	}
 
 	return null;
+}
+
+/*---------------------------------------------------------------------------*/
+
+Spaceships.prototype.search = function (searchTerm) {
+	var spaceships = this;
+	$.ajax(
+		{
+			url: "./spaceships.php",
+			data: { read: 1, name: searchTerm },
+			beforeSend: function (xhr) {
+				xhr.overrideMimeType("text/plain; charset=x-user-defined");
+			}
+		})
+		.done(function (data) {
+			console.log("Search response:", data);
+			try {
+				spaceships.onSearch(JSON.parse(data));
+			} catch (e) {
+				console.error("Parse error:", e);
+			}
+		})
+		.fail(function (xhr, status, error) {
+			console.error("Search failed:", status, error);
+		});
+}
+
+Spaceships.prototype.onSearch = function (data) {
+	var items = data.items;
+
+	$("#search table").remove();
+
+	if (!items || items.length === 0) {
+		$("#search").append('<p>No results found</p>');
+		return;
+	}
+
+	var table = $('<table class="table table-striped table-hover"><thead class="table-dark"><tr><th>Name</th><th>Type</th><th>Shipyard</th><th>Crew</th></tr></thead><tbody></tbody></table>');
+
+	for (i = 0; i < items.length; i++) {
+		table.append($('<tr><td>' + items[i].name + '</td><td>' + items[i].type + '</td><td>' + items[i].shipyard + '</td><td>' + items[i].crew + '</td></tr>'));
+	}
+
+	$("#search").append(table);
 }
 
 /*---------------------------------------------------------------------------*/

@@ -41,16 +41,16 @@ if (isset($_GET["create"])) {
 	$condition = "";
 
 	if (isset($_GET["name"])) {
-		$condition = "WHERE name =" . $_GET["name"];
+		$condition = "WHERE name LIKE \"%" . $_GET["name"] . "%\"";
 	} elseif (isset($_GET["type"])) {
-		$condition = "WHERE type =" . $_GET["type"];
+		$condition = "WHERE type LIKE \"%" . $_GET["type"] . "%\"";
 	} elseif (isset($_GET["shipyard"])) {
-		$condition = "WHERE shipyard =" . $_GET["shipyard"];
+		$condition = "WHERE shipyard LIKE \"%" . $_GET["shipyard"] . "%\"";
 	} elseif (isset($_GET["crew"])) {
-		$condition = "WHERE crew =" . $_GET["crew"];
+		$condition = "WHERE crew = " . $_GET["crew"];
 	}
 
-	$readQuery = "SELECT * FROM spaceship" . $condition;
+	$readQuery = "SELECT * FROM spaceship " . $condition;
 	$data = $connection->query($readQuery);
 
 	$nNoOfItems = $data->num_rows;
